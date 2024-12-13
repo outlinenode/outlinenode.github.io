@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-25355.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>一文弄懂Spring Boot应用分层构建Docker Image镜像</title>
+        <meta name="description" content="之前一直使用Dockerfile的方式将Spring Boot应用构建成Docker Image, 发现jar包只有十几兆，但是构建出现的镜像有几百兆，传输的时候非常慢。后来发现spring-boot" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">一文弄懂Spring Boot应用分层构建Docker Image镜像</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>之前一直使用<code>Dockerfile</code>的方式将<code>Spring Boot应用</code>构建成<code>Docker Image</code>, 发现jar包只有十几兆，但是构建出现的镜像有几百兆，传输的时候非常慢。后来发现<code>spring-boot-maven-plugin</code>插件可以分层构建<code>Docker Image</code>，尝试了一下，效果挺不错。</p> <h2>常用构建方式</h2> <p>将<code>Spring Boot</code>应用打包成<code>Docker Image</code>最常用的方式使用编写<code>Dockerfile</code>,使用<code>docker build</code>命令手动打包。</p> <p><code>Dockerfile</code>内容如下：</p> <pre><code>FROM openjdk:17 WORKDIR /app COPY target/*.jar /app/app.jar ENTRYPOINT ["java","-jar","/app/app.jar"] 复制代码</code></pre> <ol> <li>构建过程：</li> </ol> <p style="text-align:center;"><img decoding="async" alt="image.png" src="http://img.555519.xyz/uploads3/20220602/429baa14cec3ae67b2a7c07567373943.jpg"></p> <ol> <li>构建结果：</li> </ol> <p style="text-align:center;"><img decoding="async" alt="image.png" src="http://img.555519.xyz/uploads3/20220602/c45c499f51a5501708621129f6f47409.jpg"></p> <p>使用<code>docker images</code>查看镜像，可以发现多了两个镜像:<code>webflux_demo_file</code>和<code>openjdk</code>。<code>webflux_demo_file</code>是应用程序最终构建的镜像，<code>openjdk</code>是被依赖的基础镜像。从镜像大小我们可以看到<code>webflux_demo_file</code>镜像共796m，而基础镜像<code>openjdk</code>就占了471m。</p> <h2>分层构建</h2> <p><code>spring boot 2.3</code>之后的<code>spring-boot-maven-plugin</code>插件支持将应用程序构建成<code>Docker Image</code>，并且支持分层构建、将镜像推送到镜像仓库等功能。</p> <p>要使用<code>spring-boot-maven-plugin</code>插件分层构建应用程序，需要在<code>pom</code>文件中加入一些配置。</p> <ol> <li>修改<code>pom</code>文件</li> </ol> <p>在<code>spring-boot-maven-plugin</code>增加配置开启分层构建并配置分层的方式。</p> <pre><code> &lt;properties&gt;     &lt;!--声明时间戳的格式化方式--&gt;     &lt;maven.build.timestamp.format&gt;yyyyMMddHHmmss&lt;/maven.build.timestamp.format&gt; &lt;/properties&gt;   &lt;plugin&gt;     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;     &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;     &lt;configuration&gt;         &lt;layers&gt;             &lt;!--开启分层构建--&gt;             &lt;enabled&gt;true&lt;/enabled&gt;              &lt;!--构建配置--&gt;             &lt;configuration&gt;${project.basedir}/layers.xml&lt;/configuration&gt;         &lt;/layers&gt;         &lt;image&gt;             &lt;!--镜像名称， 使用构建时间作为镜像的版本号--&gt;             &lt;name&gt;example.com/webflux_demo:${maven.build.timestamp}&lt;/name&gt;         &lt;/image&gt;     &lt;/configuration&gt; &lt;/plugin&gt; 复制代码</code></pre> <ol> <li>创建<code>layers.xml</code>文件</li> </ol> <p><code>layers.xml</code>文件配置了分层构建的方式，内容如下：</p> <pre><code>&lt;layers xmlns="http://www.springframework.org/schema/boot/layers"         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         xsi:schemaLocation="http://www.springframework.org/schema/boot/layers                           https://www.springframework.org/schema/boot/layers/layers-2.6.xsd"&gt;     &lt;application&gt;         &lt;into layer="spring-boot-loader"&gt;             &lt;include&gt;org/springframework/boot/loader/**&lt;/include&gt;         &lt;/into&gt;         &lt;into layer="application" /&gt;     &lt;/application&gt;     &lt;dependencies&gt;         &lt;into layer="application"&gt;             &lt;includeModuleDependencies /&gt;         &lt;/into&gt;         &lt;into layer="snapshot-dependencies"&gt;             &lt;include&gt;*:*:*SNAPSHOT&lt;/include&gt;         &lt;/into&gt;         &lt;into layer="dependencies" /&gt;     &lt;/dependencies&gt;     &lt;layerOrder&gt;         &lt;layer&gt;dependencies&lt;/layer&gt;         &lt;layer&gt;spring-boot-loader&lt;/layer&gt;         &lt;layer&gt;snapshot-dependencies&lt;/layer&gt;         &lt;layer&gt;application&lt;/layer&gt;     &lt;/layerOrder&gt; &lt;/layers&gt; 复制代码</code></pre> <ol> <li>构建镜像</li> </ol> <p>使用<code>mvn spring-boot:build-image</code>命令或者在<code>maven工具</code>中双击<code>spring-boot:build-image</code>开始构建镜像。如图</p> <p style="text-align:center;"><img decoding="async" alt="image.png" src="http://img.555519.xyz/uploads3/20220602/375789a5e25fcff0fa1fbc7d0a3cd9ef.jpg"></p> <ol> <li>构建信息</li> </ol> <p>构建信息过多，这里截取部分。如下图</p> <p style="text-align:center;"><img decoding="async" alt="image.png" src="http://img.555519.xyz/uploads3/20220602/e572a8ba7e2496bf86c578628cde18dc.jpg"></p> <ol> <li>构建结果</li> </ol> <p>使用<code>docker images</code>查看镜像，可以看到使用这种方式构建的镜像只有282m。比使用之前的镜像小了一半。</p> <p style="text-align:center;"><img decoding="async" alt="image.png" src="http://img.555519.xyz/uploads3/20220602/55d85721394f1b8072e115cb9343dd06.jpg"></p> <blockquote> <p>美中不足的是构建的时候需要从github下载一个包，导致构建时间很长</p> </blockquote> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24893.htm">动物疫苗接种间隔时间短有什么危害吗 动物疫苗接种间隔时间短有什么危害吗视频</a></p>
+                                        <p>下一个：<a href="/news/article-25356.htm">合肥宠物免费领养（合肥宠物领养中心官网）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20291.htm" title="动物疫苗是什么单位性质（动物疫苗属于疫苗分类吗）">动物疫苗是什么单位性质（动物疫苗属于疫苗分类吗）</a></li>
+                        <li class="py-2"><a href="/news/article-25355.htm" title="一文弄懂Spring Boot应用分层构建Docker Image镜像">一文弄懂Spring Boot应用分层构建Docker Image镜像</a></li>
+                        <li class="py-2"><a href="/news/article-24892.htm" title="Java-GUI编程之菜单组件">Java-GUI编程之菜单组件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-high-speed-nodes.htm" title="11月15日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址">11月15日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23953.htm" title="开宠物美容店挣钱吗现在多少钱（开宠物美容店前景如何）">开宠物美容店挣钱吗现在多少钱（开宠物美容店前景如何）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-node-subscribe.htm" title="11月2日→22.7M/S|2024年最新免费节点Outline Node订阅链接地址">11月2日→22.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24383.htm" title="全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）">全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）</a></li>
+                        <li class="py-2"><a href="/news/article-23956.htm" title="猫咪疫苗可以自己打吗?（自己在家给猫***图解）">猫咪疫苗可以自己打吗?（自己在家给猫***图解）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-free-node-subscribe-links.htm" title="11月10日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月10日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share.htm" title="11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址">11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
