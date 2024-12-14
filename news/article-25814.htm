@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-25814.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>桶排序c++实现（适用于所有整型数组）</title>
+        <meta name="description" content="桶排序的思路基本就三步： 1.按照数组的上下界与长度将其划分为若干个区间，对应若干个桶，将元素放入对应范围的桶里 2.对每一个桶内部排序 3.遍历所有桶，依次将桶中元素输出 时间和空间开销都是O(n+" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">桶排序c++实现（适用于所有整型数组）</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="htmledit_views"> <p>桶排序的思路基本就三步：</p> <p>1.按照数组的上下界与长度将其划分为若干个区间，对应若干个桶，将元素放入对应范围的桶里</p> <p>2.对每一个桶内部排序</p> <p>3.遍历所有桶，依次将桶中元素输出</p> <p>时间和空间开销都是O(n+k),n是数组长度，k是桶的个数。</p> <p>划分区间采取归一化策略；</p> <p>桶用二维数组动态分配内存；</p> <p>桶的内部排序采取快排，时间复杂度O(NlogN)。</p> <pre><code>#include&lt;iostream&gt; using namespace std; void quick_sort(int a[], int l, int r) { 	if (l &lt; r) { 		int i = l, j = r, x = a[i]; 		while (i &lt; j) { 			while (i&lt;j &amp;&amp; a[j]&gt;x)  j--; 			if (i &lt; j) a[i++] = a[j]; 			while (i &lt; j &amp;&amp; a[i] &lt; x)  i++; 			if (i &lt; j) a[j--] = a[i]; 		} 		a[i] = x; 		quick_sort(a, l, i-1); 		quick_sort(a, i + 1, r); 	} } void bksort(int a[],int n) {//数组长度 	int min = a[0], max = a[0]; 	for (int i = 0; i &lt; n; i++) { 		if (a[i] &lt; min)  min = a[i]; 		if (a[i] &gt; max)  max = a[i]; 	} 	int bkNum = (max - min) / n + 1, tmp = 0; 	int** bk = new int* [bkNum];//动态分配桶内存 	for (int i = 0; i &lt; bkNum; i++)  		bk[i] = new int[bkNum] {0}; 	int* k = new int[bkNum] {0};//动态分配k数组（存储每个桶元素个数）  	for (int i = 0; i &lt; n; i++) { 		int index = (a[i]-min) / n;//定义元素存放的桶号 		bk[index][k[index]++] = a[i]; 	} 	for (int i = 0; i &lt; bkNum; i++) { 		quick_sort(bk[i], 0, k[i] - 1); 		cout &lt;&lt; i &lt;&lt; "号桶元素个数：" &lt;&lt; k[i] &lt;&lt; endl; 		for (int j = 0; j &lt; k[i]; j++) { 			a[tmp++] = bk[i][j];//遍历桶中元素，依次存入原数组 		} 	} }  int main() { 	int a[] = { 1, 45, 32, 23, 22, 31, 47, 24, 4, 15, 55, 67, 59, 68, 89, 84 }; 	int len = sizeof(a) / sizeof(int); 	bksort(a, len); 	for (int i = 0; i &lt; len; i++) 		cout &lt;&lt; a[i] &lt;&lt; " "; }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25356.htm">合肥宠物免费领养（合肥宠物领养中心官网）</a></p>
+                                        <p>下一个：<a href="/news/article-25817.htm">动物防疫工作的方针有哪些（动物防疫工作的原则）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-20290.htm" title="宠物猫疫苗价格表图（宠物猫疫苗价格表图大全）">宠物猫疫苗价格表图（宠物猫疫苗价格表图大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-high-speed-nodes.htm" title="11月11日→22.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月11日→22.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-subscribe-node.htm" title="11月7日→19.6M/S|2024年最新免费节点Outline Node订阅链接地址">11月7日→19.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24892.htm" title="Java-GUI编程之菜单组件">Java-GUI编程之菜单组件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share-links.htm" title="11月1日→21.9M/S|2024年最新免费节点Outline Node订阅链接地址">11月1日→21.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23038.htm" title="附近领养狗狗在哪里 附近领养狗狗在哪里">附近领养狗狗在哪里 附近领养狗狗在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-23489.htm" title="宠物粮食厂家有些款不能网上销售吗（宠物粮食供应商真的赚钱吗）">宠物粮食厂家有些款不能网上销售吗（宠物粮食供应商真的赚钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-22117.htm" title="沈阳58同城宠物猫买卖电话（沈阳卖猫咪的宠物市场）">沈阳58同城宠物猫买卖电话（沈阳卖猫咪的宠物市场）</a></li>
+                        <li class="py-2"><a href="/news/article-22581.htm" title="我们必须要了解的Java位运算（不仅限于Java）">我们必须要了解的Java位运算（不仅限于Java）</a></li>
+                        <li class="py-2"><a href="/news/article-20750.htm" title="深圳在哪领养狗（深圳在哪领养狗狗）">深圳在哪领养狗（深圳在哪领养狗狗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
