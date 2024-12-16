@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://outlinenode.github.io/news/article-25814.htm" />
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-26298.htm" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>桶排序c++实现（适用于所有整型数组）</title>
-        <meta name="description" content="桶排序的思路基本就三步： 1.按照数组的上下界与长度将其划分为若干个区间，对应若干个桶，将元素放入对应范围的桶里 2.对每一个桶内部排序 3.遍历所有桶，依次将桶中元素输出 时间和空间开销都是O(n+" />
+    <title>tf.reshape(tensor, shape, name=None)改变tensor的形状</title>
+        <meta name="description" content="tf.reshape(tensor, shape, name=None) Given `tensor`, this operation returns a tensor that has the sa" />
         <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
     <!-- Favicon -->
     <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
@@ -60,7 +60,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="title text-center">桶排序c++实现（适用于所有整型数组）</h1>
+                    <h1 class="title text-center">tf.reshape(tensor, shape, name=None)改变tensor的形状</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="/">首页</a></li>
@@ -78,10 +78,10 @@
         <div class="container mb-7">
             <div class="row mb-n7">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <p>桶排序的思路基本就三步：</p> <p>1.按照数组的上下界与长度将其划分为若干个区间，对应若干个桶，将元素放入对应范围的桶里</p> <p>2.对每一个桶内部排序</p> <p>3.遍历所有桶，依次将桶中元素输出</p> <p>时间和空间开销都是O(n+k),n是数组长度，k是桶的个数。</p> <p>划分区间采取归一化策略；</p> <p>桶用二维数组动态分配内存；</p> <p>桶的内部排序采取快排，时间复杂度O(NlogN)。</p> <pre><code>#include&lt;iostream&gt; using namespace std; void quick_sort(int a[], int l, int r) { 	if (l &lt; r) { 		int i = l, j = r, x = a[i]; 		while (i &lt; j) { 			while (i&lt;j &amp;&amp; a[j]&gt;x)  j--; 			if (i &lt; j) a[i++] = a[j]; 			while (i &lt; j &amp;&amp; a[i] &lt; x)  i++; 			if (i &lt; j) a[j--] = a[i]; 		} 		a[i] = x; 		quick_sort(a, l, i-1); 		quick_sort(a, i + 1, r); 	} } void bksort(int a[],int n) {//数组长度 	int min = a[0], max = a[0]; 	for (int i = 0; i &lt; n; i++) { 		if (a[i] &lt; min)  min = a[i]; 		if (a[i] &gt; max)  max = a[i]; 	} 	int bkNum = (max - min) / n + 1, tmp = 0; 	int** bk = new int* [bkNum];//动态分配桶内存 	for (int i = 0; i &lt; bkNum; i++)  		bk[i] = new int[bkNum] {0}; 	int* k = new int[bkNum] {0};//动态分配k数组（存储每个桶元素个数）  	for (int i = 0; i &lt; n; i++) { 		int index = (a[i]-min) / n;//定义元素存放的桶号 		bk[index][k[index]++] = a[i]; 	} 	for (int i = 0; i &lt; bkNum; i++) { 		quick_sort(bk[i], 0, k[i] - 1); 		cout &lt;&lt; i &lt;&lt; "号桶元素个数：" &lt;&lt; k[i] &lt;&lt; endl; 		for (int j = 0; j &lt; k[i]; j++) { 			a[tmp++] = bk[i][j];//遍历桶中元素，依次存入原数组 		} 	} }  int main() { 	int a[] = { 1, 45, 32, 23, 22, 31, 47, 24, 4, 15, 55, 67, 59, 68, 89, 84 }; 	int len = sizeof(a) / sizeof(int); 	bksort(a, len); 	for (int i = 0; i &lt; len; i++) 		cout &lt;&lt; a[i] &lt;&lt; " "; }</code></pre> </div> 			                <div class="clearfix"></div>
+                                      				  				  				<div id="content_views" class="htmledit_views"> <blockquote> <h3><strong>tf.reshape(tensor, shape, name=None)</strong></h3> <p>Given `tensor`, this operation returns a tensor that has the same values as `tensor` with shape `shape`.</p> <p>Args:<br /> &nbsp; tensor: A `Tensor`.<br /> &nbsp; shape: A `Tensor`. Must be one of the following types: `int32`, `int64`.<br /> &nbsp;&nbsp;&nbsp; Defines the shape of the output tensor.<br /> &nbsp; name: A name for the operation (optional).</p> <p>Returns:<br /> &nbsp; A `Tensor`. Has the same type as `tensor`.</p> <p><strong>注意：（1）If one component of `shape` is the special value -1, the size of that dimension is computed so that the total size remains constant.&nbsp; In particular, a `shape` of `[-1]` flattens into 1-D.&nbsp; At most one component of `shape` can be -1.</strong></p> <p><strong>（2） If `shape` is 1-D or higher, then the operation returns a tensor with shape `shape` filled with the values of `tensor`. In this case, the number of elements implied by `shape` must be the same as the number of elements in `tensor`.</strong></p> <p><strong>举例：</strong></p> <pre class="has"><code class="language-php">  # tensor 't' is [1, 2, 3, 4, 5, 6, 7, 8, 9]   # tensor 't' has shape [9]   reshape(t, [3, 3]) ==&gt; [[1, 2, 3],                           [4, 5, 6],                           [7, 8, 9]]    # tensor 't' is [[[1, 1], [2, 2]],   #                [[3, 3], [4, 4]]]   # tensor 't' has shape [2, 2, 2]   reshape(t, [2, 4]) ==&gt; [[1, 1, 2, 2],                           [3, 3, 4, 4]]    # tensor 't' is [[[1, 1, 1],   #                 [2, 2, 2]],   #                [[3, 3, 3],   #                 [4, 4, 4]],   #                [[5, 5, 5],   #                 [6, 6, 6]]]   # tensor 't' has shape [3, 2, 3]   # pass '[-1]' to flatten 't'   reshape(t, [-1]) ==&gt; [1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6]    # -1 can also be used to infer the shape    # -1 is inferred to be 9:   reshape(t, [2, -1]) ==&gt; [[1, 1, 1, 2, 2, 2, 3, 3, 3],                            [4, 4, 4, 5, 5, 5, 6, 6, 6]]   # -1 is inferred to be 2:   reshape(t, [-1, 9]) ==&gt; [[1, 1, 1, 2, 2, 2, 3, 3, 3],                            [4, 4, 4, 5, 5, 5, 6, 6, 6]]   # -1 is inferred to be 3:   reshape(t, [ 2, -1, 3]) ==&gt; [[[1, 1, 1],                                 [2, 2, 2],                                 [3, 3, 3]],                                [[4, 4, 4],                                 [5, 5, 5],                                 [6, 6, 6]]]    # tensor 't' is [7]   # shape `[]` reshapes to a scalar   reshape(t, []) ==&gt; 7</code></pre> <p>&nbsp;</p> </blockquote></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-25356.htm">合肥宠物免费领养（合肥宠物领养中心官网）</a></p>
-                                        <p>下一个：<a href="/news/article-25817.htm">动物防疫工作的方针有哪些（动物防疫工作的原则）</a></p>
+                                        <p>上一个：<a href="/news/article-25817.htm">动物防疫工作的方针有哪些（动物防疫工作的原则）</a></p>
+                                        <p>下一个：<a href="/news/article-26302.htm">安安宠物店怎么样（安安宠物医院营业时间）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -91,16 +91,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-high-speed-nodes.htm" title="12月12日→22.7M/S|2024年最新免费节点Outline Node订阅链接地址">12月12日→22.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-21743.htm" title="海拉鲁全图鉴393（海拉鲁图鉴四个宝物）">海拉鲁全图鉴393（海拉鲁图鉴四个宝物）</a></li>
-                        <li class="py-2"><a href="/news/article-22581.htm" title="我们必须要了解的Java位运算（不仅限于Java）">我们必须要了解的Java位运算（不仅限于Java）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-node-subscribe.htm" title="11月6日→22.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月6日→22.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-high-speed-nodes.htm" title="11月11日→22.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月11日→22.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-node-share.htm" title="12月4日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址">12月4日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-18-free-subscribe-node.htm" title="11月18日→22.8M/S|2024年最新免费节点Outline Node订阅链接地址">11月18日→22.8M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-26298.htm" title="tf.reshape(tensor, shape, name=None)改变tensor的形状">tf.reshape(tensor, shape, name=None)改变tensor的形状</a></li>
-                        <li class="py-2"><a href="/news/article-25814.htm" title="桶排序c++实现（适用于所有整型数组）">桶排序c++实现（适用于所有整型数组）</a></li>
-                        <li class="py-2"><a href="/news/article-22114.htm" title="58同城狗狗领养武汉（武汉领养狗狗的平台）">58同城狗狗领养武汉（武汉领养狗狗的平台）</a></li>
-                        <li class="py-2"><a href="/news/article-23956.htm" title="猫咪疫苗可以自己打吗?（自己在家给猫***图解）">猫咪疫苗可以自己打吗?（自己在家给猫***图解）</a></li>
-                        <li class="py-2"><a href="/news/article-24383.htm" title="全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）">全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share.htm" title="11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址">11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22581.htm" title="我们必须要了解的Java位运算（不仅限于Java）">我们必须要了解的Java位运算（不仅限于Java）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-node-share.htm" title="11月5日→20.8M/S|2024年最新免费节点Outline Node订阅链接地址">11月5日→20.8M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-node-subscribe-links.htm" title="12月3日→19.7M/S|2024年最新免费节点Outline Node订阅链接地址">12月3日→19.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-node-share-links.htm" title="11月4日→19M/S|2024年最新免费节点Outline Node订阅链接地址">11月4日→19M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25817.htm" title="动物防疫工作的方针有哪些（动物防疫工作的原则）">动物防疫工作的方针有哪些（动物防疫工作的原则）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe-links.htm" title="11月3日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月3日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
