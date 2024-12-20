@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-28601.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>第2章 图灵的计算王国</title>
+        <meta name="description" content="图灵机与计算理论是人工智能乃至整个计算机科学的理论基础。一切计算过程都可以用图灵机仿真。因此，无论如何人工智能都无法逃脱图灵机可计算理论的范畴。本章从图灵可计算理论的基础触发，忽略掉一切实用的工程细节" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">第2章 图灵的计算王国</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>图灵机与计算理论是人工智能乃至整个计算机科学的理论基础。一切计算过程都可以用图灵机仿真。因此，无论如何人工智能都无法逃脱图灵机可计算理论的范畴。本章从图灵可计算理论的基础触发，忽略掉一切实用的工程细节，来讨论计算机可以做和不可以做的事情。从这些讨论中，我们可以站在一定的理论高度来窥探人工智能的前进方向。</p> <h2 id="图灵机">图灵机</h2> <p>计算是一个司空见惯，古已有之的概念。例如，我国古代发明的算盘就是一种计算的机器。</p> <p>图灵机模型既直观又简洁，因此人们普遍接受了图灵机模型作为计算理论的标准模型。</p> <h2 id="计算">计算</h2> <p>如果我们把一切都看作信息，那么广义上讲，计算就是对信息的变换。</p> <p>计算就是某个系统完成了一次从输入到输出的变换。</p> <h2 id="计算的组合">计算的组合</h2> <p>从最简单的逻辑运算操作最简单的二进制信息出发，我们其实可以构造任意的图灵机。</p> <h2 id="征服无限的方法">征服无限的方法</h2> <p>运用有限的规则应对无限可能情况的方法。</p> <h2 id="计算等价性">计算等价性</h2> <p>具体地说，如果A能够仿真B,并且B也能仿真A，那么A和B就是计算等价的。计算等价性是非常强有力的，因为它揭示了在我们这个宇宙中某种非常普遍的规律。</p> <p>所有与加法运算算法计算等价的计算机程序都是一回事儿，因而加法算法这个东西是永恒而独立的。</p> <p>看！我们在宇宙中找到某种永恒性了，这种永恒性反映了宇宙规律中某种本质上的美。计算等价性就和能量守恒定律一样具有这种高级的对称性，我甚至觉得计算等价性要比能量守恒定律更加深刻。因为无论如何能量守恒定律仍然刻画了物理系统的某种属性，而计算等价性刻画的则是非常广泛的信息系统之间的对称性，而一切系统都可以被抽象为信息系统，甚至是物质世界。所以，计算等价性是跨越所有系统之间某种高级对称的，永恒的，美的东西。</p> <h2 id="意义">意义</h2> <p>图灵机之间是可以相互仿真的。</p> <p>这三句话具有相同的意义，而根据前面的叙述，能够相互仿真的图灵机是计算等价的。而这种计算等价性就像前面说到的加法规则一样是独立于计算系统和执行机构的。</p> <p>所谓语言的意义，就是执行这个语言系统的计算等价性。</p> <h2 id="万能图灵机">万能图灵机</h2> <p>前面已经讲述了仿真的概念，那么自然会产生这样一个问题：是否存在一台图灵机能够仿真所有其他的图灵机呢？答案是存在的。这种能够仿真其他所有图灵机的图灵机叫做通用图灵机，也就是我所说的“万能图灵机”。我之所以这么称呼它，是因为这种机器在图灵计算这个范畴内是万能的。</p> <h2 id="编码">编码</h2> <p>什么是编码呢?你可以理解为对某一堆事物进行编号。</p> <h2 id="自食其尾">自食其尾</h2> <p>既然万能图灵机能够仿真任何一台图灵机的动作，那么它能不能仿真它自己呢？答案是肯定的。我们首先看到万能图灵机也是图灵机，也有固定的输入，输出，状态的集合，固定的程序，因而它也能被编码。于是我们就可以把它自己的编码信息输入给它自己。这就好像一条蛇咬到了自己的尾巴自食其尾就会产生怪圈，虽然我们现在还没有看到任何不好的征兆，然而在下一节里面，我们将会看到这种怪圈会产生什么样的结论。而且在第四章我们也会看到，其实这个怪圈是和康托尔对角线法则，哥德尔定理有关的。</p> <p>图灵机一旦能够把程序作为数据来读写，就会诞生很多有趣的事情。首先，存在某种图灵机可以完成自我复制。事实上，计算机病毒就是这样干的。</p> <p>有了万能图灵机，还能得到很多有趣的结论，比如假设有一大群图灵机，让它们随机地相互碰撞，当碰到一块的时候，一个图灵机可以读入另一个图灵机的编码，并且修改这台图灵机的编码。那么这样一个图灵机“汤”中会产生什么呢？美国圣塔菲研究所的芳塔纳完成了这个实验，并得出了惊人的结论：在这样的系统中会诞生自我维护的类似生命的复杂组织，而且这些组织能够进一步联合起来构成更大的组织！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-28146.htm">狗粮制作机器设备视频大全（狗粮制作机器设备小型）</a></p>
+                                        <p>下一个：<a href="/news/article-28602.htm">用纯RUST实现音视频流媒体服务(RTMP/HTTPFLV/HLS)XIU</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-28602.htm" title="用纯RUST实现音视频流媒体服务(RTMP/HTTPFLV/HLS)XIU">用纯RUST实现音视频流媒体服务(RTMP/HTTPFLV/HLS)XIU</a></li>
+                        <li class="py-2"><a href="/news/article-28601.htm" title="第2章 图灵的计算王国">第2章 图灵的计算王国</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-high-speed-nodes.htm" title="11月17日→22M/S|2024年最新免费节点Outline Node订阅链接地址">11月17日→22M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26298.htm" title="tf.reshape(tensor, shape, name=None)改变tensor的形状">tf.reshape(tensor, shape, name=None)改变tensor的形状</a></li>
+                        <li class="py-2"><a href="/news/article-21210.htm" title="被猫抓伤了怎么判断没事图片真实（被猫抓了痕迹是怎样的）">被猫抓伤了怎么判断没事图片真实（被猫抓了痕迹是怎样的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share-links.htm" title="12月10日→21M/S|2024年最新免费节点Outline Node订阅链接地址">12月10日→21M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25356.htm" title="合肥宠物免费领养（合肥宠物领养中心官网）">合肥宠物免费领养（合肥宠物领养中心官网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share.htm" title="12月8日→18.1M/S|2024年最新免费节点Outline Node订阅链接地址">12月8日→18.1M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27674.htm" title="动物注射疫苗应注意什么细节问题（动物疫苗接种时应注意哪些）">动物注射疫苗应注意什么细节问题（动物疫苗接种时应注意哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-27673.htm" title="win11系统如何创建虚拟磁盘">win11系统如何创建虚拟磁盘</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

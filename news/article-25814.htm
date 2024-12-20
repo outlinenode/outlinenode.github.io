@@ -78,7 +78,8 @@
         <div class="container mb-7">
             <div class="row mb-n7">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="htmledit_views"> <p>桶排序的思路基本就三步：</p> <p>1.按照数组的上下界与长度将其划分为若干个区间，对应若干个桶，将元素放入对应范围的桶里</p> <p>2.对每一个桶内部排序</p> <p>3.遍历所有桶，依次将桶中元素输出</p> <p>时间和空间开销都是O(n+k),n是数组长度，k是桶的个数。</p> <p>划分区间采取归一化策略；</p> <p>桶用二维数组动态分配内存；</p> <p>桶的内部排序采取快排，时间复杂度O(NlogN)。</p> <pre><code>#include&lt;iostream&gt; using namespace std; void quick_sort(int a[], int l, int r) { 	if (l &lt; r) { 		int i = l, j = r, x = a[i]; 		while (i &lt; j) { 			while (i&lt;j &amp;&amp; a[j]&gt;x)  j--; 			if (i &lt; j) a[i++] = a[j]; 			while (i &lt; j &amp;&amp; a[i] &lt; x)  i++; 			if (i &lt; j) a[j--] = a[i]; 		} 		a[i] = x; 		quick_sort(a, l, i-1); 		quick_sort(a, i + 1, r); 	} } void bksort(int a[],int n) {//数组长度 	int min = a[0], max = a[0]; 	for (int i = 0; i &lt; n; i++) { 		if (a[i] &lt; min)  min = a[i]; 		if (a[i] &gt; max)  max = a[i]; 	} 	int bkNum = (max - min) / n + 1, tmp = 0; 	int** bk = new int* [bkNum];//动态分配桶内存 	for (int i = 0; i &lt; bkNum; i++)  		bk[i] = new int[bkNum] {0}; 	int* k = new int[bkNum] {0};//动态分配k数组（存储每个桶元素个数）  	for (int i = 0; i &lt; n; i++) { 		int index = (a[i]-min) / n;//定义元素存放的桶号 		bk[index][k[index]++] = a[i]; 	} 	for (int i = 0; i &lt; bkNum; i++) { 		quick_sort(bk[i], 0, k[i] - 1); 		cout &lt;&lt; i &lt;&lt; "号桶元素个数：" &lt;&lt; k[i] &lt;&lt; endl; 		for (int j = 0; j &lt; k[i]; j++) { 			a[tmp++] = bk[i][j];//遍历桶中元素，依次存入原数组 		} 	} }  int main() { 	int a[] = { 1, 45, 32, 23, 22, 31, 47, 24, 4, 15, 55, 67, 59, 68, 89, 84 }; 	int len = sizeof(a) / sizeof(int); 	bksort(a, len); 	for (int i = 0; i &lt; len; i++) 		cout &lt;&lt; a[i] &lt;&lt; " "; }</code></pre> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>桶排序的思路基本就三步：</p> <p>1.按照数组的上下界与长度将其划分为若干个区间，对应若干个桶，将元素放入对应范围的桶里</p> <p>2.对每一个桶内部排序</p> <p>3.遍历所有桶，依次将桶中元素输出</p> <p>时间和空间开销都是O(n+k),n是数组长度，k是桶的个数。</p> <p>划分区间采取归一化策略；</p> <p>桶用二维数组动态分配内存；</p> <p>桶的内部排序采取快排，时间复杂度O(NlogN)。</p> <pre><code>#include&lt;iostream&gt; using namespace std; void quick_sort(int a[], int l, int r) { 	if (l &lt; r) { 		int i = l, j = r, x = a[i]; 		while (i &lt; j) { 			while (i&lt;j &amp;&amp; a[j]&gt;x)  j--; 			if (i &lt; j) a[i++] = a[j]; 			while (i &lt; j &amp;&amp; a[i] &lt; x)  i++; 			if (i &lt; j) a[j--] = a[i]; 		} 		a[i] = x; 		quick_sort(a, l, i-1); 		quick_sort(a, i + 1, r); 	} } void bksort(int a[],int n) {//数组长度 	int min = a[0], max = a[0]; 	for (int i = 0; i &lt; n; i++) { 		if (a[i] &lt; min)  min = a[i]; 		if (a[i] &gt; max)  max = a[i]; 	} 	int bkNum = (max - min) / n + 1, tmp = 0; 	int** bk = new int* [bkNum];//动态分配桶内存 	for (int i = 0; i &lt; bkNum; i++)  		bk[i] = new int[bkNum] {0}; 	int* k = new int[bkNum] {0};//动态分配k数组（存储每个桶元素个数）  	for (int i = 0; i &lt; n; i++) { 		int index = (a[i]-min) / n;//定义元素存放的桶号 		bk[index][k[index]++] = a[i]; 	} 	for (int i = 0; i &lt; bkNum; i++) { 		quick_sort(bk[i], 0, k[i] - 1); 		cout &lt;&lt; i &lt;&lt; "号桶元素个数：" &lt;&lt; k[i] &lt;&lt; endl; 		for (int j = 0; j &lt; k[i]; j++) { 			a[tmp++] = bk[i][j];//遍历桶中元素，依次存入原数组 		} 	} }  int main() { 	int a[] = { 1, 45, 32, 23, 22, 31, 47, 24, 4, 15, 55, 67, 59, 68, 89, 84 }; 	int len = sizeof(a) / sizeof(int); 	bksort(a, len); 	for (int i = 0; i &lt; len; i++) 		cout &lt;&lt; a[i] &lt;&lt; " "; }</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-25356.htm">合肥宠物免费领养（合肥宠物领养中心官网）</a></p>
                                         <p>下一个：<a href="/news/article-25817.htm">动物防疫工作的方针有哪些（动物防疫工作的原则）</a></p>
@@ -91,16 +92,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share.htm" title="12月8日→18.1M/S|2024年最新免费节点Outline Node订阅链接地址">12月8日→18.1M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-node-subscribe-links.htm" title="12月15日→20.2M/S|2024年最新免费节点Outline Node订阅链接地址">12月15日→20.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19834.htm" title="穷人适合养猫咪吗（穷人养猫富人养狗）">穷人适合养猫咪吗（穷人养猫富人养狗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-high-speed-nodes.htm" title="12月12日→22.7M/S|2024年最新免费节点Outline Node订阅链接地址">12月12日→22.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26298.htm" title="tf.reshape(tensor, shape, name=None)改变tensor的形状">tf.reshape(tensor, shape, name=None)改变tensor的形状</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-9-node-share-links.htm" title="12月9日→19.3M/S|2024年最新免费节点Outline Node订阅链接地址">12月9日→19.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-18914.htm" title="如何将CONCAT()函数与MySQL WHERE子句一起使用？">如何将CONCAT()函数与MySQL WHERE子句一起使用？</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-9-free-subscribe-node.htm" title="11月9日→20M/S|2024年最新免费节点Outline Node订阅链接地址">11月9日→20M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-24383.htm" title="全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）">全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）</a></li>
-                        <li class="py-2"><a href="/news/article-22114.htm" title="58同城狗狗领养武汉（武汉领养狗狗的平台）">58同城狗狗领养武汉（武汉领养狗狗的平台）</a></li>
-                        <li class="py-2"><a href="/news/article-26748.htm" title="小动物医院情景剧（动物医院故事）">小动物医院情景剧（动物医院故事）</a></li>
-                        <li class="py-2"><a href="/news/article-22117.htm" title="沈阳58同城宠物猫买卖电话（沈阳卖猫咪的宠物市场）">沈阳58同城宠物猫买卖电话（沈阳卖猫咪的宠物市场）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share.htm" title="11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址">11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-node-share.htm" title="12月4日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址">12月4日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22581.htm" title="我们必须要了解的Java位运算（不仅限于Java）">我们必须要了解的Java位运算（不仅限于Java）</a></li>
+                        <li class="py-2"><a href="/news/article-21744.htm" title="中国农业科学院哈尔滨畜牧兽医研究所（中国农科院哈尔滨兽医研究所官网）">中国农业科学院哈尔滨畜牧兽医研究所（中国农科院哈尔滨兽医研究所官网）</a></li>
+                        <li class="py-2"><a href="/news/article-23038.htm" title="附近领养狗狗在哪里 附近领养狗狗在哪里">附近领养狗狗在哪里 附近领养狗狗在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-27674.htm" title="动物注射疫苗应注意什么细节问题（动物疫苗接种时应注意哪些）">动物注射疫苗应注意什么细节问题（动物疫苗接种时应注意哪些）</a></li>
                     </ul>
     </div>
 </div>
@@ -112,7 +113,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">50</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">56</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -133,6 +134,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p>
                             <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
                         </p>
