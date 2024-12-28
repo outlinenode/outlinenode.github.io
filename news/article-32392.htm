@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-32392.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>python和hive结合使用</title>
+        <meta name="description" content="主要工作：利用python脚本对日志文件解析，将解析后的每个字段存放到对应表中；  （1）创建自己的数据库，存放所有自己建立的表：  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hiv" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">python和hive结合使用</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">主要工作：利用python脚本对日志文件解析，将解析后的每个字段存放到对应表中；</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">（1）创建自己的数据库，存放所有自己建立的表：</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;hive&gt;create database lina;</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>(2)进入数据库中，并创建两个表格分别是record,log：</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;hive&gt;create table record(da string);</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;hive&gt;load data inpath '/source_data/日志文件' into table record;</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;这样每一行日志就存放到da中，下步就是调用python脚本对da中的字符串进行解析。在此之前要把python脚本存放到mysql数据库，该脚本在每一启动Hive的时候都要重新加载一次；</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;hive&gt; add file /data0/cdh/WeiboLog/resolveLog.py;<br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;出现下面的就表示成功：Added resource: /data0/cdh/WeiboLog/resolveLog.py</span><span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr></span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr><span style="word-wrap:normal; word-break:normal; line-height:21px; font-size:14px">hive&gt; create log(server string,time string, url string,appkey string,uid string,ip string,pool string);</span></span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;hive&gt; from record&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr><br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; insert overwrite table log&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr><br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; select TRANSFORM(da) using 'resolveLog.py' as serive,time,url,appkey,uid,ip,pool;</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;这样就能把数据加载到表log中，可以对log表进行SQL操作！！！！</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:24px; font-size:16px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;弄出来真不容易，太感谢师傅了！！！</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> &nbsp;<wbr></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="color:#22B14C; word-wrap:normal; word-break:normal">存在问题：</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> 在创建表record时，要设置文本分隔符，否则会导致结果错误。比如通过mapreduce统计的日志文件是20505509条，而计算没有设置行分隔符的表record的结果是21771333条，结果偏差很大，以后建表时要注意的问题。</p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> 重新建立表records，如下：</p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> hive&gt; create table records(line string)<br /><span style="color:#ED1C24; word-wrap:normal; word-break:normal">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; row format delimited<br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; lines terminated&nbsp;by '\n' stored as textfile</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt;&nbsp;<wbr>load data inpath '/source_data/openapi_v4-2012-07-18_00000' into table records;</p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> 建立表logs:</p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:18px; font-size:12px">hive&gt; create table logs(server string,time string, url string,appkey string,uid string,ip string,pool string)<br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; row&nbsp;<wbr>format delimited&nbsp;<wbr></span><span style="word-wrap:normal; word-break:normal; line-height:18px; font-size:12px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr><br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; fields terminated by '\001'&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr><br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; lines terminated&nbsp;by '\n' stored as textfile;&nbsp;<wbr></span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal">将表records中的数据导入表logs中：</span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:18px; font-size:12px"><span style="word-wrap:normal; word-break:normal; line-height:21px; font-size:14px">hive&gt; add file /data0/cdh/WeiboLog/resolveLog.py;<br /> Added resource: /data0/cdh/WeiboLog/resolveLog.py<br /> hive&gt; from records</span></span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:18px; font-size:12px"><span style="word-wrap:normal; word-break:normal; line-height:21px; font-size:14px">&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; insert overwrite&nbsp;table logs<br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; select transform(line)<br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; using 'resolveLog.py'<br /> &nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;&gt; as server,time, url,appkey,uid,ip,pool;&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr>&nbsp;<wbr></span></span></p> <p style="margin-top:0px; margin-bottom:5px; padding-top:0px; padding-bottom:0px; border:0px; list-style:none; word-wrap:normal; word-break:normal; line-height:21px; color:rgb(73,73,73); font-family:simsun; font-size:14px; background-color:rgb(226,226,226)"> <span style="word-wrap:normal; word-break:normal; line-height:18px; font-size:12px"><span style="word-wrap:normal; word-break:normal; line-height:21px; font-size:14px">这样在运行hive&gt; select count(*) from logs;结果就正确了！！&nbsp;</span></span></p> <p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-31923.htm">广州哪里可以领养宠物猫（广州哪里可以领养宠物狗）</a></p>
+                                        <p>下一个：<a href="/news/article-32393.htm">宠物疫苗批号查询网址 宠物疫苗批号查询网址是什么</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-node-share-links.htm" title="12月10日→21M/S|2024年最新免费节点Outline Node订阅链接地址">12月10日→21M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32392.htm" title="python和hive结合使用">python和hive结合使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-subscribe-node.htm" title="12月17日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址">12月17日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-31332.htm" title="宠物粮食品牌起名大全四个字开头的名字（宠物粮品牌名称）">宠物粮食品牌起名大全四个字开头的名字（宠物粮品牌名称）</a></li>
+                        <li class="py-2"><a href="/news/article-24383.htm" title="全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）">全国动物疫苗生产厂家排名榜最新（全国动物疫苗生产厂家排名榜最新名单）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-node-share-links.htm" title="12月27日→22M/S|2024年最新免费节点Outline Node订阅链接地址">12月27日→22M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29992.htm" title="jenkins 新增用户和修改用户名密码">jenkins 新增用户和修改用户名密码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-node-subscribe.htm" title="11月30日→20.3M/S|2024年最新免费节点Outline Node订阅链接地址">11月30日→20.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-node-share-links.htm" title="11月4日→19M/S|2024年最新免费节点Outline Node订阅链接地址">11月4日→19M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-28145.htm" title="广州宠物收容中心电话号码 广州宠物收容中心电话号码是多少">广州宠物收容中心电话号码 广州宠物收容中心电话号码是多少</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
