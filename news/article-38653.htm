@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-38653.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）</title>
+        <meta name="description" content="首先，css和html    &lt;section&gt;         &lt;div class="minute"&gt;&lt;/div&gt;         &lt;div class=" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>首先，css和html</p> <pre><code class="language-html">   &lt;section&gt;         &lt;div class="minute"&gt;&lt;/div&gt;         &lt;div class="second"&gt;&lt;/div&gt;         &lt;div class="mill"&gt;&lt;/div&gt;     &lt;/section&gt;     &lt;button class="start"&gt;开始&lt;/button&gt;     &lt;button class="stop"&gt;暂停&lt;/button&gt;     &lt;button class="over"&gt;结束&lt;/button&gt;</code></pre> <pre><code class="language-css">   div {             width: 100px;             height: 50px;             font-size: 40px;             border: 1px solid red;             float: left;             line-height: 50px;             text-align: center;         }</code></pre> <p>js代码</p> <pre><code class="language-javascript">        //获取元素         var minutes = document.querySelector('.minute')         var seconds = document.querySelector('.second')         var mills = document.querySelector('.mill')         var stop = document.querySelector('.stop')         var div = document.querySelector('div')         var over = document.querySelector('.over')         var start = document.querySelector('.start')         //在全局变量中设置分、秒、和毫秒、还有定时器，方便后边做清除         var timer = null         var mill = 0         var s = 0         var m = 0         //点击开始按钮         start.addEventListener('click', function () {             //创建定时器之前先清除一下定时器，以免重复按开始按钮导致定时器过多，速度过快             clearInterval(timer)             //创建定时器             timer = setInterval(function () {                 //毫秒每次加一                 mill += 1                 //当毫秒加到250的时候进行判断                 if (mill === 250) {                   //加到250是，毫秒数恢复为0，秒数加一                     mill = 0                     s += 1                     //判断当秒数加到60的时候                     if (s === 60) {                     //秒数恢复为0，分钟加一                         s = 0                         m += 1                     }                 }                 //将所加的毫秒、分钟、秒都加到div中                 minutes.innerHTML = m                 seconds.innerHTML = s                 mills.innerHTML = mill             })          })         //按下停止按钮，停止定时器，但是里面是的数值并不会恢复为0         //停止按钮         stop.addEventListener('click', function () {             clearInterval(timer)         })         //按下清空按钮，停止定时器，让所有的数为零，并将div中的数字清空         //清空按钮         over.addEventListener('click', function () {             clearInterval(timer)             mill = 0             s = 0             m = 0             minutes.innerHTML = m             seconds.innerHTML = s             mills.innerHTML = mill         })</code></pre> <p>此外，我们还可以利用事件戳制作秒表，事件戳制作会更精准，</p> <p>先获取事件戳（这个事件戳会一直随着事件走而走）</p> <p>然后创建点击事件，获取点击时候的时间戳，（这个事件戳就是点击时候的时间，不会发生改变）</p> <p>然后利用先获取的时间戳减去点击的时间戳，得到开始的事件。</p> <p>js代码如下（html和css样式跟上面相同）</p> <pre><code class="language-javascript">        //获取样式         var minutes = document.querySelector('.minute')         var seconds = document.querySelector('.second')         var mills = document.querySelector('.mill')         var stop = document.querySelector('.stop')         var div = document.querySelector('div')         var over = document.querySelector('.over')         var start = document.querySelector('.start')         //创建初始的时间戳、定时器         var newTime = new Date().getTime()         var timer = null         var now ;         //点击事件         start.addEventListener('click', function () {             //开始定时器             timer = setInterval(function () {                 //获取点击时的时间戳                 now = +new Date                 //两个时间戳想减，得到相差的时间，就是点击后秒表的时间                 var timers = now - newTime                 //进行取证，取模，得到分和秒                 var minute = parseInt(timers / 1000 / 60 % 60)                 //如果小于10，在前面加上0，（美观）                 var minute = minute &lt; 10 ? '0' + minute : minute                 var second = parseInt(timers / 1000 % 60)                 //如果小于10，在前面加上0，（美观）                 var second = second &lt; 10 ? '0' + second : second                 var mill = parseInt(timers % 250)                 //将时间添加到div中                 minutes.innerHTML = minute                 seconds.innerHTML = second                 mills.innerHTML = mill             }, 20)         })         //停止按钮         stop.addEventListener('click', function () {             clearInterval(timer)         })      </code></pre> <p>如发现问题欢迎留言！！！（你我都在加强的路上）</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38176.htm">动物防疫站打疫苗多少钱啊一针（动物防疫***收费吗）</a></p>
+                                        <p>下一个：<a href="/news/article-38657.htm">Redis Cluster 集群搭建与扩容、缩容</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29070.htm" title="动物疫苗批号查询网站官网入口查询（动物疫苗2021）">动物疫苗批号查询网站官网入口查询（动物疫苗2021）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-node-share.htm" title="11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址">11月26日→21.5M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="12月19日→20.9M/S|2024年最新免费节点Outline Node订阅链接地址">12月19日→20.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-high-speed-nodes.htm" title="11月20日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址">11月20日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe.htm" title="11月21日→22.8M/S|2024年最新免费节点Outline Node订阅链接地址">11月21日→22.8M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-node-share.htm" title="12月14日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址">12月14日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26298.htm" title="tf.reshape(tensor, shape, name=None)改变tensor的形状">tf.reshape(tensor, shape, name=None)改变tensor的形状</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share-links.htm" title="11月1日→21.9M/S|2024年最新免费节点Outline Node订阅链接地址">11月1日→21.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-high-speed-nodes.htm" title="11月14日→19.9M/S|2024年最新免费节点Outline Node订阅链接地址">11月14日→19.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-subscribe-node.htm" title="12月2日→19.6M/S|2024年最新免费节点Outline Node订阅链接地址">12月2日→19.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
