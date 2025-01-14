@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-40627.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue中v-model的三种修饰符:lazy,numer,trim</title>
+        <meta name="description" content="lazy 修饰符: 使模型绑定的数据只有在失去焦点或者是按下回车时才会更新 &lt;input type="text" id="inp" v-model.lazy="message"&gt;  使用l" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">vue中v-model的三种修饰符:lazy,numer,trim</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>lazy 修饰符: 使模型绑定的数据只有在失去焦点或者是按下回车时才会更新</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> id<span class="token operator">=</span><span class="token string">"inp"</span> v<span class="token operator">-</span>model<span class="token punctuation">.</span>lazy<span class="token operator">=</span><span class="token string">"message"</span><span class="token operator">&gt;</span> </code></pre> <p>使用lazy可以使数据不需要多次重写，减少消耗。<br /> 在默认情况下，在输入框中无论我们输入的是字母还是数字，都是会被当做是字符串类型进行处理<br /> number 修饰符: 使输入框中输入的内容自动转换为数字类型</p> <pre><code class="prism language-javascript">  <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> name<span class="token operator">=</span><span class="token string">""</span> id<span class="token operator">=</span><span class="token string">"age"</span> v<span class="token operator">-</span>model<span class="token punctuation">.</span>number<span class="token operator">=</span><span class="token string">"age"</span><span class="token operator">&gt;</span> </code></pre> <p>trim 修饰符: 过滤掉内容左右两边的的空格</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> name<span class="token operator">=</span><span class="token string">""</span> id<span class="token operator">=</span><span class="token string">"str"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"str"</span><span class="token operator">&gt;</span> </code></pre> <p>浏览器显示空格会默认过滤掉，但是里面的数据并没有过滤<img decoding="async" src="http://img.555519.xyz/uploads/20221208/aa2ab51cdeb6e7d6e74ed4376f268e21.jpg" alt="vue中v-model的三种修饰符:lazy,numer,trim"></p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> name<span class="token operator">=</span><span class="token string">""</span> id<span class="token operator">=</span><span class="token string">"str"</span> v<span class="token operator">-</span>model<span class="token punctuation">.</span>trim<span class="token operator">=</span><span class="token string">"str"</span><span class="token operator">&gt;</span> </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221208/ab18045c122d622bf57c732b37ea5128.jpg" alt="vue中v-model的三种修饰符:lazy,numer,trim"><br /> 源码：</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">&gt;</span>  <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, initial-scale=1.0"</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>meta http<span class="token operator">-</span>equiv<span class="token operator">=</span><span class="token string">"X-UA-Compatible"</span> content<span class="token operator">=</span><span class="token string">"ie=edge"</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>Document<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://cdn.jsdelivr.net/npm/vue"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>  <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">&gt;</span>   <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"inp"</span><span class="token operator">&gt;</span>     <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> lazy 修饰符<span class="token punctuation">:</span> 使模型绑定的数据只有在失去焦点或者是按下回车时才会更新 <span class="token operator">--</span><span class="token operator">&gt;</span>     <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> id<span class="token operator">=</span><span class="token string">"inp"</span> v<span class="token operator">-</span>model<span class="token punctuation">.</span>lazy<span class="token operator">=</span><span class="token string">"message"</span><span class="token operator">&gt;</span>   <span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>   <span class="token operator">&lt;</span>br<span class="token operator">&gt;</span>   <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 在默认情况下，在输入框中无论我们输入的是字母还是数字，都是会被当做是字符串类型进行处理 <span class="token operator">--</span><span class="token operator">&gt;</span>   <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> number 修饰符<span class="token punctuation">:</span> 使输入框中输入的内容自动转换为数字类型 <span class="token operator">--</span><span class="token operator">&gt;</span>   <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"age"</span><span class="token operator">&gt;</span>     <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> name<span class="token operator">=</span><span class="token string">""</span> id<span class="token operator">=</span><span class="token string">"age"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"age"</span><span class="token operator">&gt;</span>   <span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>   <span class="token operator">&lt;</span>br<span class="token operator">&gt;</span>   <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> trim 修饰符<span class="token punctuation">:</span> 过滤掉内容左右两边的的空格 <span class="token operator">--</span><span class="token operator">&gt;</span>   <span class="token operator">&lt;</span>label <span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"str"</span><span class="token operator">&gt;</span>     <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> name<span class="token operator">=</span><span class="token string">""</span> id<span class="token operator">=</span><span class="token string">"str"</span> v<span class="token operator">-</span>model<span class="token punctuation">.</span>trim<span class="token operator">=</span><span class="token string">"str"</span><span class="token operator">&gt;</span>   <span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">&gt;</span>   <span class="token operator">&lt;</span>br<span class="token operator">&gt;</span>   <span class="token operator">&lt;</span>h2<span class="token operator">&gt;</span>您输入的字符<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>str<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h2<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  <span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>   <span class="token comment">//创建Vue实例,得到 ViewModel</span>   <span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>     el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>     data<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>       message<span class="token punctuation">:</span> <span class="token string">'你好!'</span><span class="token punctuation">,</span>       age<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>       str<span class="token punctuation">:</span> <span class="token string">''</span>     <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">//定义数据</span>     methods<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token comment">//定义函数</span>     computed<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">//定义计算函数</span>     filters<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">//</span>   <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>  <span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-40141.htm">昆明宠物医院便宜又好的地方（昆明宠物医院排行）</a></p>
+                                        <p>下一个：<a href="/news/article-40628.htm">狗粮一般在哪买比较正宗（狗粮去哪里买比较好）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26749.htm" title="2021动物疫苗行业前景（动物疫苗发展前景）">2021动物疫苗行业前景（动物疫苗发展前景）</a></li>
+                        <li class="py-2"><a href="/news/article-21210.htm" title="被猫抓伤了怎么判断没事图片真实（被猫抓了痕迹是怎样的）">被猫抓伤了怎么判断没事图片真实（被猫抓了痕迹是怎样的）</a></li>
+                        <li class="py-2"><a href="/news/article-38653.htm" title="js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）">js制作简易秒表效果详细讲解、开始、暂停与结束（定时器制作和时间戳制作）</a></li>
+                        <li class="py-2"><a href="/news/article-31331.htm" title="动物疫苗空瓶无害化处理措施（动物疫苗空瓶无害化处理措施有哪些）">动物疫苗空瓶无害化处理措施（动物疫苗空瓶无害化处理措施有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-24892.htm" title="Java-GUI编程之菜单组件">Java-GUI编程之菜单组件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-node-share.htm" title="12月20日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址">12月20日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24382.htm" title="动物医院叫什么医院名称好听的（动物医院有哪些）">动物医院叫什么医院名称好听的（动物医院有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-high-speed-nodes.htm" title="11月20日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址">11月20日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-free-node-subscribe-links.htm" title="12月3日→19.7M/S|2024年最新免费节点Outline Node订阅链接地址">12月3日→19.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-node-subscribe.htm" title="12月21日→18.2M/S|2024年最新免费节点Outline Node订阅链接地址">12月21日→18.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
