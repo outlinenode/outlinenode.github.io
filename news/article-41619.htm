@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-41619.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring Security核心类详解</title>
+        <meta name="description" content="Spring Security是什么 Spring Security 是一种基于 Spring AOP 和 Servlet 过滤器 Filter 的安全框架，它提供了全面的安全解决方案，提供在 Web" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">Spring Security核心类详解</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <h2><a id="Spring_Security_0" rel="nofollow"></a>Spring Security是什么</h2> <p>Spring Security 是一种基于 Spring AOP 和 Servlet 过滤器 Filter 的安全框架，它提供了全面的安全解决方案，提供在 Web 请求和方法调用级别的用户鉴权和权限控制。</p> <p>Web 应用的安全性通常包括两方面：<strong>用户认证（Authentication）和用户授权（Authorization）。</strong></p> <ul> <li> <p>用户认证指的是验证某个用户是否为系统合法用户，也就是说用户能否访问该系统。用户认证一般要求用户提供用户名和密码，系统通过校验用户名和密码来完成认证。</p> </li> <li> <p>用户授权指的是验证某个用户是否有权限执行某个操作。</p> </li> </ul> <h2><a id="_12" rel="nofollow"></a>核心组件</h2> <h2><a id="SecurityContextHolder_14" rel="nofollow"></a>SecurityContextHolder、</h2> <p>SecurityContextHolder 是最基本的对象，它负责存储当前安全上下文信息。即保存着当前用户是什么，是否已经通过认证，拥有哪些权限。。。等等。SecurityContextHolder默认使用<strong>ThreadLocal</strong>策略来存储认证信息，意味着这是一种与线程绑定的策略。在Web场景下的使用Spring Security，在用户登录时自动绑定认证信息到当前线程，在用户退出时，自动清除当前线程的认证信息。</p> <pre><code>Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();  if (principal instanceof UserDetails) { String username = ((UserDetails)principal).getUsername(); } else { String username = principal.toString(); }</code></pre> <h2><a id="SecurityContext_28" rel="nofollow"></a>SecurityContext</h2> <p>安全上下文，主要持有Authentication对象，如果用户未鉴权，那Authentication对象将会是空的。该示例可以通过SecurityContextHolder.getContext静态方法获取</p> <h2><a id="Authentication_32" rel="nofollow"></a>Authentication</h2> <ul> <li>getAuthorities，权限列表,通常是代表权限的字符串列表；</li> <li>getCredentials，密码信息,由用户输入的密码凭证，认证之后会移出，来保证安全性；</li> <li>getDetails，细节信息，Web应用中一般是访问者的ip地址和sessionId；</li> <li>getPrincipal, 最重要的身份信息，一般返回UserDetails的实现类；</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/7fc138d2d0f9f8d82e3833192dc6f3c0.jpg" alt="Spring Security核心类详解"></p> <h2><a id="UserDetails__UserDetailsService_41" rel="nofollow"></a>UserDetails 和 UserDetailsService</h2> <h2><a id="AuthenticationManager_45" rel="nofollow"></a>AuthenticationManager</h2> <p>AuthenticationManager接口只包含一个方法，那就是认证，它是认证相关的核心接口，也是发起认证的出发点。实际业务中可能根据不同的信息进行认证，所以Spring推荐通过实现AuthenticationManager接口来自定义自己的认证方式.Spring提供了一个默认的实现，ProviderManager。</p> <h2><a id="ProviderManager_49" rel="nofollow"></a>ProviderManager</h2> <p>其实ProviderManager不是自己处理身份验证请求，它将委托给配置的AuthenticationProvider列表，按照顺序进行依次认证，每个provider都会尝试认证，或者通过简单地返回null来跳过验证。如果所有实现都返回null，那么ProviderManager将抛出一个ProviderNotFoundException</p> <h2><a id="AuthenticationProvider_53" rel="nofollow"></a>AuthenticationProvider</h2> <p>AuthenticationProvider接口提供了两个方法，一个是真正的认证，另一个是满足什么样的身份信息才进行如上认证。</p> <h2><a id="httpsimgblogcsdnnet20180611154036239watermark2textaHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NpbmF0XzI5ODk5MjY1font5a6L5L2Tfontsize400fillI0JBQkFCMAdissolve70_57" rel="nofollow"></a><img decoding="async" src="http://img.555519.xyz/uploads3/20220602/e2243abaae0ed69a54ebf65dfc44b99c.jpg" alt="Spring Security核心类详解"></h2> <p>认证完成后, AuthenticationManager 将会返回该认证对象(UsernamePasswordAuthenticationToken)返回给过滤器</p> <h2><a id="_65" rel="nofollow"></a>认证流程：</h2> <ol> <li>用户提交用户名、密码被SecurityFilterChain中的<code>UsernamePasswordAuthenticationFilter</code> 过滤器获取到，封装为请求Authentication，通常情况下是<code>UsernamePasswordAuthenticationToken</code>这个实现类。</li> <li>然后过滤器将Authentication提交至<code>认证管理器(AuthenticationManager)</code>进行认证</li> <li>认证成功后， AuthenticationManager 身份管理器返回一个被填充满了信息的(包括上面提到的权限信息， 身份信息，细节信息，但密码通常会被移除)<code>Authentication</code> 实例。</li> <li><code>SecurityContextHolder 安全上下文容器</code>将第3步填充了信息的 Authentication ，通过<code>SecurityContextHolder.getContext().setAuthentication(...)</code>方法，设置到其中。可以看出AuthenticationManager接口(认证管理器)是认证相关的核心接口，也是发起认证的出发点，它 的实现类为ProviderManager。而Spring Security支持多种认证方式，因此ProviderManager维护着一个<br /> List 列表，存放多种认证方式，最终实际的认证工作是由<code>AuthenticationProvider</code>完成的。咱们知道web表单的对应的AuthenticationProvider实现类为<code>DaoAuthenticationProvider</code>，它的内部又维护着一个<code>UserDetailsService</code>负责UserDetails的获取。最终<code>AuthenticationProvider</code>将UserDetails填充至Authentication。</li> </ol> <p>参考文章：</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/sinat_29899265/article/details/80653167"  rel="nofollow">https://blog.csdn.net/sinat_29899265/article/details/80653167</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/cold___play/article/details/105199253?utm_medium=distribute.pc_relevant.none-task-blog-baidulandingword-2&amp;spm=1001.2101.3001.4242"  rel="nofollow">https://blog.csdn.net/cold___play/article/details/105199253?utm_medium=distribute.pc_relevant.none-task-blog-baidulandingword-2&amp;spm=1001.2101.3001.4242</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-41616.htm">SpringBoot admin+Eureka+钉钉通知 实现微服务监控</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe-links.htm" title="11月3日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月3日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-high-speed-nodes.htm" title="11月22日→19.1M/S|2024年最新免费节点Outline Node订阅链接地址">11月22日→19.1M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-node-share-links.htm" title="12月9日→19.3M/S|2024年最新免费节点Outline Node订阅链接地址">12月9日→19.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29993.htm" title="动物疫苗价格查询表图片大全及价格 动物疫苗价格查询表图片大全及价格">动物疫苗价格查询表图片大全及价格 动物疫苗价格查询表图片大全及价格</a></li>
+                        <li class="py-2"><a href="/news/article-40628.htm" title="狗粮一般在哪买比较正宗（狗粮去哪里买比较好）">狗粮一般在哪买比较正宗（狗粮去哪里买比较好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-high-speed-nodes.htm" title="11月19日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址">11月19日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25356.htm" title="合肥宠物免费领养（合肥宠物领养中心官网）">合肥宠物免费领养（合肥宠物领养中心官网）</a></li>
+                        <li class="py-2"><a href="/news/article-20290.htm" title="宠物猫疫苗价格表图（宠物猫疫苗价格表图大全）">宠物猫疫苗价格表图（宠物猫疫苗价格表图大全）</a></li>
+                        <li class="py-2"><a href="/news/article-37647.htm" title="vue使用Vuex状态管理模式_vue.js_">vue使用Vuex状态管理模式_vue.js_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-node-share.htm" title="11月23日→20.7M/S|2024年最新免费节点Outline Node订阅链接地址">11月23日→20.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
