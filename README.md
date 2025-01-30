@@ -1,4 +1,4 @@
-# 1月29日→18.5M/S|2025年最新免费节点Outline Node订阅链接地址  更新时间 2025-01-29 10:43:16
+# 1月30日→22.3M/S|2025年最新免费节点Outline Node订阅链接地址  更新时间 2025-01-30 07:01:08
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://outlinenode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://outlinenode.github.io/uploads/2025/01/0-20250129.yaml
-- https://outlinenode.github.io/uploads/2025/01/1-20250129.yaml
-- https://outlinenode.github.io/uploads/2025/01/2-20250129.yaml
-- https://outlinenode.github.io/uploads/2025/01/3-20250129.yaml
-- https://outlinenode.github.io/uploads/2025/01/4-20250129.yaml
+- https://outlinenode.github.io/uploads/2025/01/0-20250130.yaml
+- https://outlinenode.github.io/uploads/2025/01/1-20250130.yaml
+- https://outlinenode.github.io/uploads/2025/01/2-20250130.yaml
+- https://outlinenode.github.io/uploads/2025/01/3-20250130.yaml
+- https://outlinenode.github.io/uploads/2025/01/4-20250130.yaml
 
 ### V2ray订阅链接
 
-- https://outlinenode.github.io/uploads/2025/01/0-20250129.txt
-- https://outlinenode.github.io/uploads/2025/01/1-20250129.txt
-- https://outlinenode.github.io/uploads/2025/01/2-20250129.txt
-- https://outlinenode.github.io/uploads/2025/01/3-20250129.txt
-- https://outlinenode.github.io/uploads/2025/01/4-20250129.txt
+- https://outlinenode.github.io/uploads/2025/01/0-20250130.txt
+- https://outlinenode.github.io/uploads/2025/01/1-20250130.txt
+- https://outlinenode.github.io/uploads/2025/01/2-20250130.txt
+- https://outlinenode.github.io/uploads/2025/01/3-20250130.txt
+- https://outlinenode.github.io/uploads/2025/01/4-20250130.txt
 
 ### Sing-box订阅链接
 
-- https://outlinenode.github.io/uploads/2025/01/20250129.json
+- https://outlinenode.github.io/uploads/2025/01/20250130.json
 
 ## 更多clash节点订阅 ：
 
