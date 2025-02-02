@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-49037.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object中的equals方法</title>
+        <meta name="description" content="object中的equals方法 java.lang.Object类是java语言中的根类，即所有类的父类，它中描述的所有方法，子类都可使用。 object 类 equals 方法源码 publicb" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-49037.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="object中的equals方法" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/6c42afb90d886f5e4569705f53417e51.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:19:22" />
+    <meta property="og:updated_time" content="2025-01-31T07:19:22" />
+        <meta property="og:description" content="object中的equals方法 java.lang.Object类是java语言中的根类，即所有类的父类，它中描述的所有方法，子类都可使用。 object 类 equals 方法源码 publicb" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="object中的equals方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">object中的equals方法</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="objectequals_0" rel="nofollow"></a>object中的equals方法</h2> <p>java.lang.Object类是java语言中的根类，即所有类的父类，它中描述的所有方法，子类都可使用。</p> <p>object 类 equals 方法源码</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">boolean</span><span class="token function">euqals</span><span class="token punctuation">(</span>Object obj<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">==</span> obj<span class="token punctuation">)</span><span class="token punctuation">}</span> 参数： 	Object obj ：可以传递任意对象 方法体：<span class="token operator">==</span> ：比较运算符，返回一个布尔值 	基本数据类型：比较的是值 	引用数据类型：比较的是两个对象的地址值<span class="token keyword">this</span>是谁？ 哪个对象调用的方法，方法中<span class="token keyword">this</span>就是那个对象 obj是谁？ 传递过来的参数</code></pre> <p></p> <h2><a id="objectequals_20" rel="nofollow"></a>重写object中的equals方法</h2> <p>object类的equals方法默认比较的两个对象的地址没有意义。所以我们需要重写equals方法，比较两个对象的属性值（例如name、age）。对象属性一样，返回True，否则返回False。</p> <p>问题：<br /> 隐含一个多态<br /> Object obj = p2 = new Person(“迪丽热巴”，18)<br /> 多态弊端：无法使用子类特有的内容（属性、方法）<br /> 解决：可以使用向下转型（强转）把Object类型转换为Person</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Override</span><span class="token keyword">public</span><span class="token keyword">boolean</span><span class="token function">equals</span><span class="token punctuation">(</span>Object obj<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//提高程序效率</span><span class="token keyword">if</span><span class="token punctuation">(</span>obj<span class="token operator">==</span> null<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">if</span><span class="token punctuation">(</span>obj<span class="token operator">==</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/* 增加一个判断，是Person类型再转换，防止类型转换异常ClassCastException */</span><span class="token keyword">if</span><span class="token punctuation">(</span>obj<span class="token keyword">instanceof</span><span class="token class-name">Person</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 使用向下转型，把Object 类型转换为Person</span>  Preson p<span class="token operator">=</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span> obj<span class="token punctuation">;</span><span class="token comment">//比较两个对象的属性，一个调用方法的this（p1），一个就是p（obj = p2）</span><span class="token keyword">boolean</span> b<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token operator">==</span> p<span class="token punctuation">.</span>age<span class="token punctuation">;</span><span class="token comment">//String类重写了equals方法</span><span class="token keyword">return</span> b<span class="token punctuation">}</span><span class="token comment">//不是Person类型直接返回False</span><span class="token keyword">return</span><span class="token boolean">false</span><span class="token punctuation">}</span></code></pre> <p>在idea中，使用alt + insert可以自动添加equals重写</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@override</span><span class="token keyword">public</span><span class="token keyword">boolean</span><span class="token function">equals</span><span class="token punctuation">(</span>Object o<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token operator">==</span> o<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">if</span><span class="token punctuation">(</span>o<span class="token operator">==</span> null<span class="token operator">||</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span> o<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token punctuation">}</span> 	Person person<span class="token operator">=</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span> o<span class="token punctuation">;</span><span class="token keyword">return</span> age<span class="token operator">==</span> person<span class="token punctuation">.</span>age<span class="token operator">&amp;&amp;</span> Objects<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>person<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <h2><a id="Objects_61" rel="nofollow"></a>Objects类</h2> <p>在上面的IDEA自动重写的代码中，用到了java.util.objects类，这是一个工具类，由一些静态的实用方法组成，这些方法是null-save（空指针安全的）或者null-tolerant（容忍空指针的），用于计算对象的hashcode，返回对象的字符串表示形式，比较两个对象。</p> <p>在比较两个对象时，Obejct类的equals方法容易抛出空指针异常，而Obejcts类中的equals方法就优化了这个问题，方法如下：</p> <pre><code class="prism language-java"><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">boolean</span><span class="token function">equals</span><span class="token punctuation">(</span>Object a<span class="token punctuation">,</span> Object b<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">(</span>a<span class="token operator">==</span> b<span class="token punctuation">)</span><span class="token operator">||</span><span class="token punctuation">(</span>a<span class="token operator">!=</span> null<span class="token operator">&amp;&amp;</span> a<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48426.htm">猫咪3针疫苗间隔多久打第二针好（猫咪三针疫苗间隔）</a></p>
+                                        <p>下一个：<a href="/news/article-49038.htm">成都市动物防疫站免费疫苗时间（成都市动物防疫站免费疫苗时间表）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-45103.htm" title="宠物粮好卖吗（宠物粮市场前景怎么样）">宠物粮好卖吗（宠物粮市场前景怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-node-share-links.htm" title="1月20日→18M/S|2025年最新免费节点Outline Node订阅链接地址">1月20日→18M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-subscribe-node.htm" title="12月2日→19.6M/S|2024年最新免费节点Outline Node订阅链接地址">12月2日→19.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49563.htm" title="JavaCV的摄像头实战之七：推流(带声音)">JavaCV的摄像头实战之七：推流(带声音)</a></li>
+                        <li class="py-2"><a href="/news/article-38176.htm" title="动物防疫站打疫苗多少钱啊一针（动物防疫***收费吗）">动物防疫站打疫苗多少钱啊一针（动物防疫***收费吗）</a></li>
+                        <li class="py-2"><a href="/news/article-30497.htm" title="动物医院贵吗多少钱一次啊（动物医院有宠物卖吗）">动物医院贵吗多少钱一次啊（动物医院有宠物卖吗）</a></li>
+                        <li class="py-2"><a href="/news/article-21743.htm" title="海拉鲁全图鉴393（海拉鲁图鉴四个宝物）">海拉鲁全图鉴393（海拉鲁图鉴四个宝物）</a></li>
+                        <li class="py-2"><a href="/news/article-49038.htm" title="成都市动物防疫站免费疫苗时间（成都市动物防疫站免费疫苗时间表）">成都市动物防疫站免费疫苗时间（成都市动物防疫站免费疫苗时间表）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-high-speed-nodes.htm" title="11月19日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址">11月19日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45613.htm" title="广州宠物饲料批发市场地址查询（广州宠物饲料加工厂）">广州宠物饲料批发市场地址查询（广州宠物饲料加工厂）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

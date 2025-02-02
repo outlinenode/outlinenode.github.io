@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-49563.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaCV的摄像头实战之七：推流(带声音)</title>
+        <meta name="description" content="欢迎访问我的GitHub  这里分类和汇总了欣宸的全部原创(含配套源码)：https://github.com/zq2599/blog_demos  本篇概览  本文是《JavaCV的摄像头实战》的第" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-49563.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="JavaCV的摄像头实战之七：推流(带声音)" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/4bc68c03367cfaa6ae659fa5dacd6158.webp" />
+        <meta property="og:release_date" content="2025-02-01T07:14:51" />
+    <meta property="og:updated_time" content="2025-02-01T07:14:51" />
+        <meta property="og:description" content="欢迎访问我的GitHub  这里分类和汇总了欣宸的全部原创(含配套源码)：https://github.com/zq2599/blog_demos  本篇概览  本文是《JavaCV的摄像头实战》的第" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaCV的摄像头实战之七：推流(带声音)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">JavaCV的摄像头实战之七：推流(带声音)</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h3 id="欢迎访问我的github">欢迎访问我的GitHub</h3> <blockquote> <p>这里分类和汇总了欣宸的全部原创(含配套源码)：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/zq2599/blog_demos"  target="_blank" rel="nofollow">https://github.com/zq2599/blog_demos</a></p> </blockquote> <h3 id="本篇概览">本篇概览</h3> <ul> <li>本文是《JavaCV的摄像头实战》的第七篇，在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/bolingcavalry/p/15873597.html"  target="_blank" rel="nofollow">《JavaCV的摄像头实战之五：推流》</a>一文中，咱们将摄像头的内容推送到媒体服务器，再用VLC成功播放，相信聪明的您一定觉察到了一缕瑕疵：没有声音</li> <li>虽然《JavaCV的摄像头实战》系列的主题是摄像头处理，但显然音视频健全才是最常见的情况，因此就在本篇补全<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/bolingcavalry/p/15877663.html"  target="_blank" rel="nofollow">前文</a>的不足吧：编码实现摄像头和麦克风的推流，并验证可以成功远程播放音视频</li> </ul> <h3 id="关于音频的采集和录制">关于音频的采集和录制</h3> <ul> <li>本篇的代码是在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/bolingcavalry/p/15873597.html"  target="_blank" rel="nofollow">《JavaCV的摄像头实战之五：推流》</a>源码的基础上增加音频处理部分</li> <li>编码前，咱们先来分析一下，增加音频处理后具体的代码逻辑会有哪些变化</li> <li>只保存视频的操作，与保存音频相比，深色块就是新增的操作：</li> <li>相对的，在应用结束时，释放所有资源的时候，音视频的操作也比只有视频时要多一些，深色就是释放音频相关资源的操作：</li> <li>为了让代码简洁一些，我将音频相关的处理都放在名为<font color="blue">AudioService</font>的类中，也就是说上面两幅图的深色部分的代码都在AudioService.java中，主程序使用此类来完成音频处理</li> <li>接下来开始编码</li> </ul> <h3 id="开发音频处理类audioservice">开发音频处理类AudioService</h3> <ul> <li>首先是刚才提到的AudioService.java，主要内容就是前面图中深色块的功能，有几处要注意的地方稍后会提到：</li> </ul> <pre><code class="language-java">package com.bolingcavalry.grabpush.extend;  import lombok.extern.slf4j.Slf4j; import org.bytedeco.ffmpeg.global.avcodec; import org.bytedeco.javacv.FFmpegFrameRecorder; import org.bytedeco.javacv.FrameRecorder; import javax.sound.sampled.AudioFormat; import javax.sound.sampled.AudioSystem; import javax.sound.sampled.DataLine; import javax.sound.sampled.TargetDataLine; import java.nio.ByteBuffer; import java.nio.ByteOrder; import java.nio.ShortBuffer; import java.util.concurrent.ScheduledThreadPoolExecutor; import java.util.concurrent.TimeUnit;  /**  * @author willzhao  * @version 1.0  * @description 音频相关的服务  * @date 2021/12/3 8:09  */ @Slf4j public class AudioService {      // 采样率     private final static int SAMPLE_RATE = 44100;      // 音频通道数，2表示立体声     private final static int CHANNEL_NUM = 2;      // 帧录制器     private FFmpegFrameRecorder recorder;      // 定时器     private ScheduledThreadPoolExecutor sampleTask;      // 目标数据线，音频数据从这里获取     private TargetDataLine line;      // 该数组用于保存从数据线中取得的音频数据     byte[] audioBytes;      // 定时任务的线程中会读此变量，而改变此变量的值是在主线程中，因此要用volatile保持可见性     private volatile boolean isFinish = false;      /**      * 帧录制器的音频参数设置      * @param recorder      * @throws Exception      */     public void setRecorderParams(FrameRecorder recorder) throws Exception {         this.recorder = (FFmpegFrameRecorder)recorder;          // 码率恒定         recorder.setAudioOption("crf", "0");         // 最高音质         recorder.setAudioQuality(0);         // 192 Kbps         recorder.setAudioBitrate(192000);          // 采样率         recorder.setSampleRate(SAMPLE_RATE);          // 立体声         recorder.setAudioChannels(2);         // 编码器         recorder.setAudioCodec(avcodec.AV_CODEC_ID_AAC);     }      /**      * 音频采样对象的初始化      * @throws Exception      */     public void initSampleService() throws Exception {         // 音频格式的参数         AudioFormat audioFormat = new AudioFormat(SAMPLE_RATE, 16, CHANNEL_NUM, true, false);          // 获取数据线所需的参数         DataLine.Info dataLineInfo = new DataLine.Info(TargetDataLine.class, audioFormat);          // 从音频捕获设备取得其数据的数据线，之后的音频数据就从该数据线中获取         line = (TargetDataLine)AudioSystem.getLine(dataLineInfo);          line.open(audioFormat);          // 数据线与音频数据的IO建立联系         line.start();          // 每次取得的原始数据大小         final int audioBufferSize = SAMPLE_RATE * CHANNEL_NUM;          // 初始化数组，用于暂存原始音频采样数据         audioBytes = new byte[audioBufferSize];          // 创建一个定时任务，任务的内容是定时做音频采样，再把采样数据交给帧录制器处理         sampleTask = new ScheduledThreadPoolExecutor(1);     }      /**      * 程序结束前，释放音频相关的资源      */     public void releaseOutputResource() {         // 结束的标志，避免采样的代码在whlie循环中不退出         isFinish = true;         // 结束定时任务         sampleTask.shutdown();         // 停止数据线         line.stop();         // 关闭数据线         line.close();     }      /**      * 启动定时任务，每秒执行一次，采集音频数据给帧录制器      * @param frameRate      */     public void startSample(double frameRate) {          // 启动定时任务，每秒执行一次，采集音频数据给帧录制器         sampleTask.scheduleAtFixedRate((Runnable) new Runnable() {             @Override             public void run() {                 try                 {                     int nBytesRead = 0;                      while (nBytesRead == 0 &amp;&amp; !isFinish) {                         // 音频数据是从数据线中取得的                         nBytesRead = line.read(audioBytes, 0, line.available());                     }                      // 如果nBytesRead&lt;1，表示isFinish标志被设置true，此时该结束了                     if (nBytesRead&lt;1) {                         return;                     }                      // 采样数据是16比特，也就是2字节，对应的数据类型就是short，                     // 所以准备一个short数组来接受原始的byte数组数据                     // short是2字节，所以数组长度就是byte数组长度的二分之一                     int nSamplesRead = nBytesRead / 2;                     short[] samples = new short[nSamplesRead];                      // 两个byte放入一个short中的时候，谁在前谁在后？这里用LITTLE_ENDIAN指定拜访顺序，                     ByteBuffer.wrap(audioBytes).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(samples);                     // 将short数组转为ShortBuffer对象，因为帧录制器的入参需要该类型                     ShortBuffer sBuff = ShortBuffer.wrap(samples, 0, nSamplesRead);                      // 音频帧交给帧录制器输出                     recorder.recordSamples(SAMPLE_RATE, CHANNEL_NUM, sBuff);                 }                 catch (FrameRecorder.Exception e) {                     e.printStackTrace();                 }             }         }, 0, 1000 / (long)frameRate, TimeUnit.MILLISECONDS);     } }</code></pre> <ul> <li>上述代码中，有两处要注意：</li> </ul> <ol> <li>重点关注<font color="blue">recorder.recordSamples</font>，该方法将音频存入了mp4文件</li> <li>定时任务是在一个新线程中执行的，因此当主线程结束录制后，需要中断定时任务中的while循环，因此新增了volatile类型的变量isFinish，帮助定时任务中的代码判断是否立即结束while循环</li> </ol> <h3 id="改造原本推流时只推视频的代码">改造原本推流时只推视频的代码</h3> <ul> <li>接着是对<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/bolingcavalry/p/15873597.html"  target="_blank" rel="nofollow">《JavaCV的摄像头实战之五：推流》</a>一文中<font color="blue">RecordCamera.java</font>的改造，为了不影响之前章节在github上的代码，这里我新增了一个类<font color="blue">RecordCameraWithAudio.java</font>，内容与RecordCamera.java一模一样，接下来咱们来改造这个RecordCameraWithAudio类</li> <li>先增加AudioService类型的成员变量：</li> </ul> <pre><code class="language-java">	// 音频服务类     private AudioService audioService = new AudioService();</code></pre> <ul> <li>接下来是关键，initOutput方法负责帧录制器的初始化，现在要加上音频相关的初始化操作，并且还要启动定时任务去采集和处理音频，如下所示，AudioService的三个方法都在此调用了，注意定时任务的启动要放在帧录制器初始化之后：</li> </ul> <pre><code class="language-java">    @Override     protected void initOutput() throws Exception {         // 实例化FFmpegFrameRecorder，将SRS的推送地址传入         recorder = FrameRecorder.createDefault(RECORD_ADDRESS, getCameraImageWidth(), getCameraImageHeight());          // 降低启动时的延时，参考         // https://trac.ffmpeg.org/wiki/StreamingGuide)         recorder.setVideoOption("tune", "zerolatency");         // 在视频质量和编码速度之间选择适合自己的方案，包括这些选项：         // ultrafast,superfast, veryfast, faster, fast, medium, slow, slower, veryslow         // ultrafast offers us the least amount of compression (lower encoder         // CPU) at the cost of a larger stream size         // at the other end, veryslow provides the best compression (high         // encoder CPU) while lowering the stream size         // (see: https://trac.ffmpeg.org/wiki/Encode/H.264)         // ultrafast对CPU消耗最低         recorder.setVideoOption("preset", "ultrafast");         // Constant Rate Factor (see: https://trac.ffmpeg.org/wiki/Encode/H.264)         recorder.setVideoOption("crf", "28");         // 2000 kb/s, reasonable "sane" area for 720         recorder.setVideoBitrate(2000000);          // 设置编码格式         recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264);          // 设置封装格式         recorder.setFormat("flv");          // FPS (frames per second)         // 一秒内的帧数         recorder.setFrameRate(getFrameRate());         // Key frame interval, in our case every 2 seconds -&gt; 30 (fps) * 2 = 60         // 关键帧间隔         recorder.setGopSize((int)getFrameRate()*2);          // 设置帧录制器的音频相关参数         audioService.setRecorderParams(recorder);          // 音频采样相关的初始化操作         audioService.initSampleService();          // 帧录制器开始初始化         recorder.start();          // 启动定时任务，采集音频帧给帧录制器         audioService.startSample(getFrameRate());     }</code></pre> <ul> <li>output方法保存原样，只处理视频帧（音频处理在定时任务中）</li> </ul> <pre><code class="language-java">    @Override     protected void output(Frame frame) throws Exception {         if (0L==startRecordTime) {             startRecordTime = System.currentTimeMillis();         }          // 时间戳         recorder.setTimestamp(1000 * (System.currentTimeMillis()-startRecordTime));          // 存盘         recorder.record(frame);     }</code></pre> <ul> <li>释放资源的方法中，增加了音频资源释放的操作：</li> </ul> <pre><code class="language-java">    @Override     protected void releaseOutputResource() throws Exception {         // 执行音频服务的资源释放操作         audioService.releaseOutputResource();          // 关闭帧录制器         recorder.close();     }</code></pre> <ul> <li>至此，将摄像头视频和麦克风音频推送到媒体服务器的功能已开发完成，再写上main方法，表示推流十分钟：</li> </ul> <pre><code class="language-java">    public static void main(String[] args) {         new RecordCameraWithAudio().action(600);     }</code></pre> <ul> <li> <p>运行main方法，等到控制台输出下图红框的内容时，表示正在推送中：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a65c3d69e56f81e472a0d2d99508d703.jpg" alt="JavaCV的摄像头实战之七：推流(带声音)"></p> </li> <li> <p>在另一台电脑上用VLC软件打开刚才推流的地址rtmp://192.168.50.43:21935/hls/camera，稍等几秒钟后开始正常播放，图像声音都正常（注意不能用当前电脑播放，否则麦克风采集的是VLC播放的声音了）：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/df9b08fdf60a0be403052851697f69c8.jpg" alt="JavaCV的摄像头实战之七：推流(带声音)"></p> </li> <li> <p>用VLC自带的工具查看媒体流信息，如下图，可见视频流和音频流都能正常识别：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4b512162a27065354fb2211bb85fc23a.jpg" alt="JavaCV的摄像头实战之七：推流(带声音)"></p> </li> <li> <p>打开媒体服务器自身的监控页面，如下图，可以看到各项实时数据：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fe9ceabbac5159ce90edfe3592d98761.jpg" alt="JavaCV的摄像头实战之七：推流(带声音)"></p> </li> <li> <p>至此，咱们已完成了音视频推流的功能，（有点像直播的样子了），得益于JavaCV的强大，整个过程是如此的轻松愉快，接下来请继续关注欣宸原创，《JavaCV的摄像头实战》系列还会呈现更多丰富的应用；</p> </li> </ul> <h3 id="源码下载">源码下载</h3> <ul> <li>《JavaCV的摄像头实战》的完整源码可在GitHub下载到，地址和链接信息如下表所示(<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/zq2599/blog_demos"  target="_blank" rel="nofollow">https://github.com/zq2599/blog_demos</a>)：</li> </ul> <table> <thead> <tr> <th style="text-align: left">名称</th> <th style="text-align: left">链接</th> <th style="text-align: left">备注</th> </tr> </thead> <tbody> <tr> <td style="text-align: left">项目主页</td> <td style="text-align: left"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/zq2599/blog_demos"  target="_blank" rel="nofollow">https://github.com/zq2599/blog_demos</a></td> <td style="text-align: left">该项目在GitHub上的主页</td> </tr> <tr> <td style="text-align: left">git仓库地址(https)</td> <td style="text-align: left"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/zq2599/blog_demos.git"  target="_blank" rel="nofollow">https://github.com/zq2599/blog_demos.git</a></td> <td style="text-align: left">该项目源码的仓库地址，https协议</td> </tr> <tr> <td style="text-align: left">git仓库地址(ssh)</td> <td style="text-align: left">git@github.com:zq2599/blog_demos.git</td> <td style="text-align: left">该项目源码的仓库地址，ssh协议</td> </tr> </tbody> </table> <ul> <li>这个git项目中有多个文件夹，本篇的源码在<font color="blue">javacv-tutorials</font>文件夹下，如下图红框所示：</li> <li><font color="blue">javacv-tutorials</font>里面有多个子工程，《JavaCV的摄像头实战》系列的代码在<font color="red"><strong>simple-grab-push</strong></font>工程下：</li> </ul> <h3 id="欢迎关注博客园程序员欣宸">欢迎关注博客园：程序员欣宸</h3> <blockquote> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/bolingcavalry/"  target="_blank" rel="nofollow">学习路上，你不孤单，欣宸原创一路相伴...</a></p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-49562.htm">MySQL 获取系统时间/系统日期/日期时间的函数</a></p>
+                                        <p>下一个：<a href="/news/article-50088.htm">动物疫苗使用管理（动物疫苗使用管理制度）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-41619.htm" title="Spring Security核心类详解">Spring Security核心类详解</a></li>
+                        <li class="py-2"><a href="/news/article-25817.htm" title="动物防疫工作的方针有哪些（动物防疫工作的原则）">动物防疫工作的方针有哪些（动物防疫工作的原则）</a></li>
+                        <li class="py-2"><a href="/news/article-31331.htm" title="动物疫苗空瓶无害化处理措施（动物疫苗空瓶无害化处理措施有哪些）">动物疫苗空瓶无害化处理措施（动物疫苗空瓶无害化处理措施有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-32878.htm" title="Vue中的动态组件（v-bind:is）的使用及组件传值">Vue中的动态组件（v-bind:is）的使用及组件传值</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share-links.htm" title="1月13日→18.3M/S|2025年最新免费节点Outline Node订阅链接地址">1月13日→18.3M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33340.htm" title="一片片枫叶 一片片枫叶从树上落下来像什么">一片片枫叶 一片片枫叶从树上落下来像什么</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-free-high-speed-nodes.htm" title="1月21日→18.2M/S|2025年最新免费节点Outline Node订阅链接地址">1月21日→18.2M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-high-speed-nodes.htm" title="11月13日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月13日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-high-speed-nodes.htm" title="11月14日→19.9M/S|2024年最新免费节点Outline Node订阅链接地址">11月14日→19.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38174.htm" title="Windows 系统电脑如何下载安装并运行 Kubectl 查看云服务器 k8s 集群资源">Windows 系统电脑如何下载安装并运行 Kubectl 查看云服务器 k8s 集群资源</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
