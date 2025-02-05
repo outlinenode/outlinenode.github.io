@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://outlinenode.github.io/news/article-21207.htm" />
@@ -8,6 +8,33 @@
     <title>Spring-RabbitMQ 消费者消息确认案例实践</title>
         <meta name="description" content="文章目录    消费者消息确认模式分类 代码实现   模式一、NONE 模式二、MANUAL channel.basicAck 确认一个或多个消息 channel.basicNack 拒绝一个或多个消" />
         <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-21207.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="Spring-RabbitMQ 消费者消息确认案例实践" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/4e5201820c2105010b813aa450090f78.webp" />
+        <meta property="og:release_date" content="2024-12-04T08:42:49" />
+    <meta property="og:updated_time" content="2024-12-04T08:42:49" />
+        <meta property="og:description" content="文章目录    消费者消息确认模式分类 代码实现   模式一、NONE 模式二、MANUAL channel.basicAck 确认一个或多个消息 channel.basicNack 拒绝一个或多个消" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring-RabbitMQ 消费者消息确认案例实践">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Favicon -->
     <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
     <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
@@ -92,16 +119,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-20751.htm" title="猫三针疫苗打完多久可以绝育（猫三针疫苗打完多久可以绝育了）">猫三针疫苗打完多久可以绝育（猫三针疫苗打完多久可以绝育了）</a></li>
-                        <li class="py-2"><a href="/news/article-19835.htm" title="大型饲料搅拌机五吨（大型饲料搅拌机五吨有多重）">大型饲料搅拌机五吨（大型饲料搅拌机五吨有多重）</a></li>
-                        <li class="py-2"><a href="/news/article-27213.htm" title="梦到抱别人女孩（梦到抱别人女孩啥意思）">梦到抱别人女孩（梦到抱别人女孩啥意思）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-node-subscribe.htm" title="1月1日→21.1M/S|2025年最新免费节点Outline Node订阅链接地址">1月1日→21.1M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-34298.htm" title="小孩被猫抓了一下轻微破皮要***吗,几天后伤口没了（小孩被猫抓了一下出了点血）">小孩被猫抓了一下轻微破皮要***吗,几天后伤口没了（小孩被猫抓了一下出了点血）</a></li>
-                        <li class="py-2"><a href="/news/article-29541.htm" title="Go并发编程sync.Cond的具体使用_Golang">Go并发编程sync.Cond的具体使用_Golang</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-subscribe-node.htm" title="11月9日→20M/S|2024年最新免费节点Outline Node订阅链接地址">11月9日→20M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-node-subscribe.htm" title="12月26日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址">12月26日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="11月24日→18.7M/S|2024年最新免费节点Outline Node订阅链接地址">11月24日→18.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-34300.htm" title="兽用疫苗稀释后多久过期啊（兽用疫苗佐剂）">兽用疫苗稀释后多久过期啊（兽用疫苗佐剂）</a></li>
+                        <li class="py-2"><a href="/news/article-42119.htm" title="猫粮厂家拿货（猫粮工厂拿货）">猫粮厂家拿货（猫粮工厂拿货）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-node-share.htm" title="12月20日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址">12月20日→18.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-node-share.htm" title="12月8日→18.1M/S|2024年最新免费节点Outline Node订阅链接地址">12月8日→18.1M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37647.htm" title="vue使用Vuex状态管理模式_vue.js_">vue使用Vuex状态管理模式_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-26298.htm" title="tf.reshape(tensor, shape, name=None)改变tensor的形状">tf.reshape(tensor, shape, name=None)改变tensor的形状</a></li>
+                        <li class="py-2"><a href="/news/article-28602.htm" title="用纯RUST实现音视频流媒体服务(RTMP/HTTPFLV/HLS)XIU">用纯RUST实现音视频流媒体服务(RTMP/HTTPFLV/HLS)XIU</a></li>
+                        <li class="py-2"><a href="/news/article-44111.htm" title="上海正规宠物领养机构排名（上海2020年宠物领养活动）">上海正规宠物领养机构排名（上海2020年宠物领养活动）</a></li>
+                        <li class="py-2"><a href="/news/article-31331.htm" title="动物疫苗空瓶无害化处理措施（动物疫苗空瓶无害化处理措施有哪些）">动物疫苗空瓶无害化处理措施（动物疫苗空瓶无害化处理措施有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-48056.htm" title="梦见自己抱着别的女人（梦见自己抱着别的女人意味着什么）">梦见自己抱着别的女人（梦见自己抱着别的女人意味着什么）</a></li>
+                        <li class="py-2"><a href="/news/article-18914.htm" title="如何将CONCAT()函数与MySQL WHERE子句一起使用？">如何将CONCAT()函数与MySQL WHERE子句一起使用？</a></li>
                     </ul>
     </div>
 </div>
@@ -113,13 +140,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://outlinenode.github.io/news/article-30980.htm" />
@@ -8,6 +8,33 @@
     <title>CUDA02 &#8211; 访存优化和Unified Memory</title>
         <meta name="description" content="前面一篇（传送门）简单介绍了CUDA的底层架构和一些线程调度方面的问题，但这只是整个CUDA的第一步，下一个问题在于数据的访存：包括数据以何种形式在CPU/GPU之间进行通信、迁移，以及在GPU内部进" />
         <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-30980.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="CUDA02 &#8211; 访存优化和Unified Memory" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/e29ea5225aee2482f5f77ec3a108f50f.webp" />
+        <meta property="og:release_date" content="2024-12-25T09:38:55" />
+    <meta property="og:updated_time" content="2024-12-25T09:38:55" />
+        <meta property="og:description" content="前面一篇（传送门）简单介绍了CUDA的底层架构和一些线程调度方面的问题，但这只是整个CUDA的第一步，下一个问题在于数据的访存：包括数据以何种形式在CPU/GPU之间进行通信、迁移，以及在GPU内部进" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CUDA02 &#8211; 访存优化和Unified Memory">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Favicon -->
     <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
     <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
@@ -92,16 +119,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-node-subscribe.htm" title="12月24日→18M/S|2024年最新免费节点Outline Node订阅链接地址">12月24日→18M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-high-speed-nodes.htm" title="11月14日→19.9M/S|2024年最新免费节点Outline Node订阅链接地址">11月14日→19.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-27673.htm" title="win11系统如何创建虚拟磁盘">win11系统如何创建虚拟磁盘</a></li>
-                        <li class="py-2"><a href="/news/article-19834.htm" title="穷人适合养猫咪吗（穷人养猫富人养狗）">穷人适合养猫咪吗（穷人养猫富人养狗）</a></li>
-                        <li class="py-2"><a href="/news/article-25355.htm" title="一文弄懂Spring Boot应用分层构建Docker Image镜像">一文弄懂Spring Boot应用分层构建Docker Image镜像</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-node-subscribe-links.htm" title="11月29日→20M/S|2024年最新免费节点Outline Node订阅链接地址">11月29日→20M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-node-share.htm" title="12月5日→20.4M/S|2024年最新免费节点Outline Node订阅链接地址">12月5日→20.4M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-33830.htm" title="Bootstrap Blazor Table 组件智能生成">Bootstrap Blazor Table 组件智能生成</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-high-speed-nodes.htm" title="11月15日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址">11月15日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-26302.htm" title="安安宠物店怎么样（安安宠物医院营业时间）">安安宠物店怎么样（安安宠物医院营业时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-node-subscribe-links.htm" title="11月28日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月28日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43623.htm" title="国产动物疫苗厂家排名（中国动物疫苗厂家排名）">国产动物疫苗厂家排名（中国动物疫苗厂家排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-high-speed-nodes.htm" title="12月19日→20.9M/S|2024年最新免费节点Outline Node订阅链接地址">12月19日→20.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-subscribe-node.htm" title="12月11日→19M/S|2024年最新免费节点Outline Node订阅链接地址">12月11日→19M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-28601.htm" title="第2章 图灵的计算王国">第2章 图灵的计算王国</a></li>
+                        <li class="py-2"><a href="/news/article-42118.htm" title="SpringBoot 整合 Kafka 以及 @KafkaListener 注解的使用">SpringBoot 整合 Kafka 以及 @KafkaListener 注解的使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-6-free-subscribe-node.htm" title="1月6日→19.4M/S|2025年最新免费节点Outline Node订阅链接地址">1月6日→19.4M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33828.htm" title="Top 20 Docker 面试题（附答案）">Top 20 Docker 面试题（附答案）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-subscribe-node.htm" title="12月17日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址">12月17日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32393.htm" title="宠物疫苗批号查询网址 宠物疫苗批号查询网址是什么">宠物疫苗批号查询网址 宠物疫苗批号查询网址是什么</a></li>
                     </ul>
     </div>
 </div>
@@ -113,13 +140,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-51679.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism</title>
+        <meta name="description" content="--概述 这个项目演示了如何在WPF中使用各种Prism功能的示例。如果您刚刚开始使用Prism，建议您从第一个示例开始，按顺序从列表中开始。每个示例都基于前一个示例的概念。 此项目平台框架：.NET" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-51679.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/6b58307d0462eb2de5f6259921df77d1.webp" />
+        <meta property="og:release_date" content="2025-02-05T08:21:04" />
+    <meta property="og:updated_time" content="2025-02-05T08:21:04" />
+        <meta property="og:description" content="--概述 这个项目演示了如何在WPF中使用各种Prism功能的示例。如果您刚刚开始使用Prism，建议您从第一个示例开始，按顺序从列表中开始。每个示例都基于前一个示例的概念。 此项目平台框架：.NET" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="#">关于</a></li>
+                                <li class="main-menu-item"><a class="main-menu-link" href="#">联系</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<h2 data-tool="mdnice编辑器">--概述</h2> <p>这个项目演示了如何在WPF中使用各种Prism功能的示例。如果您刚刚开始使用Prism，建议您从第一个示例开始，按顺序从列表中开始。每个示例都基于前一个示例的概念。</p> <p>此项目平台框架：.NET Core 3.1</p> <p>Prism版本：8.0.0.1909</p> <p>提示：这些项目都在同一解决方法下，需要依次打开运行，可以选中项目-》右键-》设置启动项目，然后运行：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a26708ff24b53da5651d453b83322cbe.jpg" alt="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism"></p> <h2 data-tool="mdnice编辑器">目录介绍</h2> <table style="width: 523px; height: 663px" cellspacing="0" cellpadding="0"> <colgroup> <col width="298"> <col width="400"></colgroup> <tbody> <tr> <td width="223" height="17">Topic</td> <td width="300">描述</td> </tr> <tr> <td width="223" height="17">Bootstrapper and the Shell</td> <td>创建一个基本的引导程序和shell</td> </tr> <tr> <td width="223" height="17">Regions</td> <td>创建一个区域</td> </tr> <tr> <td width="223" height="17">Custom Region Adapter</td> <td width="300">为StackPanel创建自定义区域适配器</td> </tr> <tr> <td width="223" height="17">View Discovery</td> <td width="300">使用视图发现自动注入视图</td> </tr> <tr> <td width="223" height="17">View Injection</td> <td width="300">使用视图注入手动添加和删除视图</td> </tr> <tr> <td width="223" height="17">View Activation/Deactivation</td> <td width="300">手动激活和停用视图</td> </tr> <tr> <td width="223" height="17">Modules with App.config</td> <td width="300">使用应用加载模块。配置文件</td> </tr> <tr> <td width="223" height="17">Modules with Code</td> <td width="300">使用代码加载模块</td> </tr> <tr> <td width="223" height="17">Modules with Directory</td> <td width="300">从目录加载模块</td> </tr> <tr> <td width="223" height="17">Modules loaded manually</td> <td width="300">使用IModuleManager手动加载模块</td> </tr> <tr> <td width="223" height="17">ViewModelLocator</td> <td width="300">使用ViewModelLocator</td> </tr> <tr> <td width="223" height="17">ViewModelLocator - Change Convention</td> <td width="300">更改ViewModelLocator命名约定</td> </tr> <tr> <td width="223" height="17">ViewModelLocator - Custom Registrations</td> <td width="300">为特定视图手动注册ViewModels</td> </tr> <tr> <td width="223" height="17">DelegateCommand</td> <td width="300">使用DelegateCommand和DelegateCommand&lt;T&gt;</td> </tr> <tr> <td width="223" height="31">CompositeCommands</td> <td width="300">了解如何使用CompositeCommands作为单个命令调用多个命令</td> </tr> <tr> <td width="223" height="17">IActiveAware Commands</td> <td width="300">使您的命令IActiveAware仅调用激活的命令</td> </tr> <tr> <td width="223" height="17">Event Aggregator</td> <td width="300">使用IEventAggregator</td> </tr> <tr> <td width="223" height="17">Event Aggregator - Filter Events</td> <td width="300">订阅事件时筛选事件</td> </tr> <tr> <td width="223" height="17">RegionContext</td> <td width="300">使用RegionContext将数据传递到嵌套区域</td> </tr> <tr> <td width="223" height="17">Region Navigation</td> <td width="300">请参见如何实现基本区域导航</td> </tr> <tr> <td width="223" height="17">Navigation Callback</td> <td width="300">导航完成后获取通知</td> </tr> <tr> <td width="223" height="17">Navigation Participation</td> <td width="300">通过INavigationAware了解视图和视图模型导航参与</td> </tr> <tr> <td width="223" height="17">Navigate to existing Views</td> <td width="300">导航期间控制视图实例</td> </tr> <tr> <td width="223" height="17">Passing Parameters</td> <td width="300">将参数从视图/视图模型传递到另一个视图/视图模型</td> </tr> <tr> <td width="223" height="17">Confirm/cancel Navigation</td> <td width="300">使用IConfirmNavigationReqest界面确认或取消导航</td> </tr> <tr> <td width="223" height="17">Controlling View lifetime</td> <td width="300">使用IRegionMemberLifetime自动从内存中删除视图</td> </tr> <tr> <td width="223" height="17">Navigation Journal</td> <td width="300">了解如何使用导航日志</td> </tr> </tbody> </table> <h2 data-tool="mdnice编辑器">部分项目演示和介绍</h2> <p><strong>① BootstrapperShell启动界面：</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e2af8094356316eaa6cc28832ca74f49.jpg" alt="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism"></p> <p>这个主要演示Prism框架搭建的用法：</p> <p>step1：在nuget上引用Prsim.Unity</p> <p>step2：修改App.xaml：设置引导程序</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">&lt;Application x:Class="BootstrapperShell.App"              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"              xmlns:local="clr-namespace:BootstrapperShell"&gt;     &lt;Application.Resources&gt;               &lt;/Application.Resources&gt; &lt;/Application&gt;</pre> </div> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">public partial class App : Application     {         protected override void OnStartup(StartupEventArgs e)         {             base.OnStartup(e);              var bootstrapper = new Bootstrapper();             bootstrapper.Run();         }     }</pre> </div> <p>　　step3：在引导程序中设置启动项目：</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">using Unity; using Prism.Unity; using BootstrapperShell.Views; using System.Windows; using Prism.Ioc;  namespace BootstrapperShell {     class Bootstrapper : PrismBootstrapper     {         protected override DependencyObject CreateShell()         {             return Container.Resolve&lt;MainWindow&gt;();         }          protected override void RegisterTypes(IContainerRegistry containerRegistry)         {                      }     } }</pre> </div> <p>　　step4：在MainWindow.xaml中显示个字符串</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">&lt;Window x:Class="BootstrapperShell.Views.MainWindow"         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"         Title="Shell" Height="350" Width="525"&gt;     &lt;Grid&gt;         &lt;ContentControl Content="Hello from Prism"  /&gt;     &lt;/Grid&gt; &lt;/Window&gt;</pre> </div> <p>　　②ViewInjection：视图注册</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/28ec3a8e1198b17f53eda3109aaa05a6.jpg" alt="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism"></p> <p>MainWindow.xaml：通过<span class="code-snippet__name">ContentControl 关联视图</span></p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">&lt;Window x:Class="ViewInjection.Views.MainWindow"         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"         xmlns:prism="http://prismlibrary.com/"         Title="Shell" Height="350" Width="525"&gt;     &lt;DockPanel LastChildFill="True"&gt;         &lt;Button DockPanel.Dock="Top" Click="Button_Click"&gt;Add View&lt;/Button&gt;         &lt;ContentControl prism:RegionManager.RegionName="ContentRegion" /&gt;     &lt;/DockPanel&gt; &lt;/Window&gt;</pre> </div> <p>　　MainWindow.xaml.cs：鼠标点击后通过IRegion 接口注册视图</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;"> public partial class MainWindow : Window     {         IContainerExtension _container;         IRegionManager _regionManager;          public MainWindow(IContainerExtension container, IRegionManager regionManager)         {             InitializeComponent();             _container = container;             _regionManager = regionManager;         }          private void Button_Click(object sender, RoutedEventArgs e)         {             var view = _container.Resolve&lt;ViewA&gt;();             IRegion region = _regionManager.Regions["ContentRegion"];             region.Add(view);         }     }</pre> </div> <p>　　③ActivationDeactivation：视图激活和注销</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/98a5fcd7e6d9a164e758fa370097b91e.jpg" alt="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism"></p> <p>MainWindow.xaml.cs：这里在窗体构造函数中注入了一个容器扩展接口和一个regin管理器接口，分别用来装载视图和注册regin，窗体的激活和去激活分别通过regions的Activate和Deactivate方法实现</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">public partial class MainWindow : Window     {         IContainerExtension _container;         IRegionManager _regionManager;         IRegion _region;          ViewA _viewA;         ViewB _viewB;          public MainWindow(IContainerExtension container, IRegionManager regionManager)         {             InitializeComponent();             _container = container;             _regionManager = regionManager;              this.Loaded += MainWindow_Loaded;         }          private void MainWindow_Loaded(object sender, RoutedEventArgs e)         {             _viewA = _container.Resolve&lt;ViewA&gt;();             _viewB = _container.Resolve&lt;ViewB&gt;();              _region = _regionManager.Regions["ContentRegion"];              _region.Add(_viewA);             _region.Add(_viewB);         }          private void Button_Click(object sender, RoutedEventArgs e)         {             //activate view a             _region.Activate(_viewA);         }          private void Button_Click_1(object sender, RoutedEventArgs e)         {             //deactivate view a             _region.Deactivate(_viewA);         }          private void Button_Click_2(object sender, RoutedEventArgs e)         {             //activate view b             _region.Activate(_viewB);         }          private void Button_Click_3(object sender, RoutedEventArgs e)         {             //deactivate view b             _region.Deactivate(_viewB);         }     }</pre> </div> <p>　　④UsingEventAggregator：事件发布订阅</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cc2c9dc9bccec0700f8a6d4551c7fbc8.jpg" alt="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism"></p> <p>事件类定义：</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">public class MessageSentEvent : PubSubEvent&lt;string&gt;     {     }</pre> </div> <p>　　注册两个组件：ModuleA和ModuleB</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;"> protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)         {             moduleCatalog.AddModule&lt;ModuleA.ModuleAModule&gt;();             moduleCatalog.AddModule&lt;ModuleB.ModuleBModule&gt;();         }</pre> </div> <p><span class="code-snippet__title">ModuleAModule 中注册视图MessageView</span></p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;"> public class ModuleAModule : IModule     {         public void OnInitialized(IContainerProvider containerProvider)         {             var regionManager = containerProvider.Resolve&lt;IRegionManager&gt;();             regionManager.RegisterViewWithRegion("LeftRegion", typeof(MessageView));         }          public void RegisterTypes(IContainerRegistry containerRegistry)         {                      }     }</pre> </div> <p>　　MessageView.xaml：视图中给button俺妞妞绑定命令</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">&lt;UserControl x:Class="ModuleA.Views.MessageView"              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"              xmlns:prism="http://prismlibrary.com/"                           prism:ViewModelLocator.AutoWireViewModel="True" Padding="25"&gt;     &lt;StackPanel&gt;         &lt;TextBox Text="{Binding Message}" Margin="5"/&gt;         &lt;Button Command="{Binding SendMessageCommand}" Content="Send Message" Margin="5"/&gt;     &lt;/StackPanel&gt; &lt;/UserControl&gt;</pre> </div> <p>　　MessageViewModel.cs：在vm中把界面绑定的命令委托给SendMessage，然后在方法SendMessage中发布消息：</p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;">using Prism.Commands; using Prism.Events; using Prism.Mvvm; using UsingEventAggregator.Core;  namespace ModuleA.ViewModels {     public class MessageViewModel : BindableBase     {         IEventAggregator _ea;          private string _message = "Message to Send";         public string Message         {             get { return _message; }             set { SetProperty(ref _message, value); }         }          public DelegateCommand SendMessageCommand { get; private set; }          public MessageViewModel(IEventAggregator ea)         {             _ea = ea;             SendMessageCommand = new DelegateCommand(SendMessage);         }          private void SendMessage()         {             _ea.GetEvent&lt;MessageSentEvent&gt;().Publish(Message);         }     } }</pre> </div> <p><span class="code-snippet__title">在MessageListViewModel 中接收并显示接收到的消息：</span></p> <div class="cnblogs_Highlighter"> <pre class="brush:csharp;gutter:true;"> public class MessageListViewModel : BindableBase     {         IEventAggregator _ea;          private ObservableCollection&lt;string&gt; _messages;         public ObservableCollection&lt;string&gt; Messages         {             get { return _messages; }             set { SetProperty(ref _messages, value); }         }          public MessageListViewModel(IEventAggregator ea)         {             _ea = ea;             Messages = new ObservableCollection&lt;string&gt;();              _ea.GetEvent&lt;MessageSentEvent&gt;().Subscribe(MessageReceived);         }          private void MessageReceived(string message)         {             Messages.Add(message);         }     }</pre> </div> <p>以上就是这个开源项目比较经典的几个入门实例，其它就不展开讲解了，有兴趣的可以下载源码自己阅读学习。</p> <h2 data-tool="mdnice编辑器">源码下载</h2> <p>github访问速度较慢，所以我下载了一份放到的百度网盘</p> <p>百度网盘链接：https://pan.baidu.com/s/10Gyks2w-R4B_3z9Jj5mRcA</p> <p>提取码：0000</p> <p>---------------------------------------------------------------------</p> <p>开源项目链接：https://github.com/PrismLibrary/Prism-Samples-Wpf</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51142.htm">十大兽药厂家排名兽药大全评价（兽药厂家排行榜）</a></p>
+                                        <p>下一个：<a href="/news/article-51681.htm">宠物店领养狗狗可靠吗（宠物店领养宠物）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21744.htm" title="中国农业科学院哈尔滨畜牧兽医研究所（中国农科院哈尔滨兽医研究所官网）">中国农业科学院哈尔滨畜牧兽医研究所（中国农科院哈尔滨兽医研究所官网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-high-speed-nodes.htm" title="11月22日→19.1M/S|2024年最新免费节点Outline Node订阅链接地址">11月22日→19.1M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19834.htm" title="穷人适合养猫咪吗（穷人养猫富人养狗）">穷人适合养猫咪吗（穷人养猫富人养狗）</a></li>
+                        <li class="py-2"><a href="/news/article-49563.htm" title="JavaCV的摄像头实战之七：推流(带声音)">JavaCV的摄像头实战之七：推流(带声音)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-node-share-links.htm" title="11月8日→19.7M/S|2024年最新免费节点Outline Node订阅链接地址">11月8日→19.7M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-29067.htm" title="用gcc查看c源文件的汇编代码   C++性能优化技术导论">用gcc查看c源文件的汇编代码   C++性能优化技术导论</a></li>
+                        <li class="py-2"><a href="/news/article-51141.htm" title="成都宠物领养中心地址电话是多少（成都宠物领养中心地址电话是多少号码）">成都宠物领养中心地址电话是多少（成都宠物领养中心地址电话是多少号码）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-subscribe-node.htm" title="12月11日→19M/S|2024年最新免费节点Outline Node订阅链接地址">12月11日→19M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-node-subscribe-links.htm" title="1月3日→21.8M/S|2025年最新免费节点Outline Node订阅链接地址">1月3日→21.8M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27673.htm" title="win11系统如何创建虚拟磁盘">win11系统如何创建虚拟磁盘</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

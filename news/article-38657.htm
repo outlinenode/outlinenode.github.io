@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://outlinenode.github.io/news/article-38657.htm" />
@@ -8,6 +8,33 @@
     <title>Redis Cluster 集群搭建与扩容、缩容</title>
         <meta name="description" content="说明：仍然是伪集群，所有的Redis节点，都在一个服务器上，采用不同配置文件，不同端口的形式实现 前提：已经安装好了Redis，本文的redis的版本是redis-6.2.3 Redis的下载、安装参" />
         <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-38657.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="Redis Cluster 集群搭建与扩容、缩容" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/6a4c4a519e83dd6ffdfa95ee1925c85c.webp" />
+        <meta property="og:release_date" content="2025-01-10T10:44:08" />
+    <meta property="og:updated_time" content="2025-01-10T10:44:08" />
+        <meta property="og:description" content="说明：仍然是伪集群，所有的Redis节点，都在一个服务器上，采用不同配置文件，不同端口的形式实现 前提：已经安装好了Redis，本文的redis的版本是redis-6.2.3 Redis的下载、安装参" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Redis Cluster 集群搭建与扩容、缩容">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- Favicon -->
     <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
     <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
@@ -92,16 +119,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-node-subscribe.htm" title="12月26日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址">12月26日→20.6M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-subscribe-node.htm" title="1月5日→21.2M/S|2025年最新免费节点Outline Node订阅链接地址">1月5日→21.2M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-38174.htm" title="Windows 系统电脑如何下载安装并运行 Kubectl 查看云服务器 k8s 集群资源">Windows 系统电脑如何下载安装并运行 Kubectl 查看云服务器 k8s 集群资源</a></li>
-                        <li class="py-2"><a href="/news/article-36695.htm" title="开一家宠物食品加工厂没有配方怎么办理（办宠物食品加工厂需要投资多少钱）">开一家宠物食品加工厂没有配方怎么办理（办宠物食品加工厂需要投资多少钱）</a></li>
-                        <li class="py-2"><a href="/news/article-29544.htm" title="动物疫苗的类型包括（动物疫苗的种类和制备原理）">动物疫苗的类型包括（动物疫苗的种类和制备原理）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share-links.htm" title="1月13日→18.3M/S|2025年最新免费节点Outline Node订阅链接地址">1月13日→18.3M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-free-node-subscribe-links.htm" title="11月3日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月3日→19.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-5-node-share.htm" title="11月5日→20.8M/S|2024年最新免费节点Outline Node订阅链接地址">11月5日→20.8M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-24-free-node-subscribe.htm" title="12月24日→18M/S|2024年最新免费节点Outline Node订阅链接地址">12月24日→18M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-high-speed-nodes.htm" title="11月12日→18.9M/S|2024年最新免费节点Outline Node订阅链接地址">11月12日→18.9M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23956.htm" title="猫咪疫苗可以自己打吗?（自己在家给猫***图解）">猫咪疫苗可以自己打吗?（自己在家给猫***图解）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-node-share.htm" title="12月4日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址">12月4日→18.3M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21744.htm" title="中国农业科学院哈尔滨畜牧兽医研究所（中国农科院哈尔滨兽医研究所官网）">中国农业科学院哈尔滨畜牧兽医研究所（中国农科院哈尔滨兽医研究所官网）</a></li>
+                        <li class="py-2"><a href="/news/article-25814.htm" title="桶排序c++实现（适用于所有整型数组）">桶排序c++实现（适用于所有整型数组）</a></li>
+                        <li class="py-2"><a href="/news/article-42630.htm" title="宠物粮食原料（宠物粮食原料有哪些）">宠物粮食原料（宠物粮食原料有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-node-subscribe.htm" title="12月22日→18.8M/S|2024年最新免费节点Outline Node订阅链接地址">12月22日→18.8M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23953.htm" title="开宠物美容店挣钱吗现在多少钱（开宠物美容店前景如何）">开宠物美容店挣钱吗现在多少钱（开宠物美容店前景如何）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-node-subscribe-links.htm" title="11月28日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址">11月28日→21.2M/S|2024年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37181.htm" title="宠物用品店代理（宠物用品店代理如何做）">宠物用品店代理（宠物用品店代理如何做）</a></li>
+                        <li class="py-2"><a href="/news/article-45103.htm" title="宠物粮好卖吗（宠物粮市场前景怎么样）">宠物粮好卖吗（宠物粮市场前景怎么样）</a></li>
                     </ul>
     </div>
 </div>
@@ -113,13 +140,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
