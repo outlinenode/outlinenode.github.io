@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-71779.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>微信小程序的自定义导航栏组件和部分数据处理方法</title>
+        <meta name="description" content="1、学习两个关键接口 wx.getMenuButtonBoundingClientRect()和wx.getSystemInfo，里面分别有的信息和手机机型的信息（如下图），关键理解里面的长高定义。 " />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-71779.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="微信小程序的自定义导航栏组件和部分数据处理方法" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/b66c5526ecbb4de7c041e40f1c749479.webp" />
+        <meta property="og:release_date" content="2025-03-11T07:48:14" />
+    <meta property="og:updated_time" content="2025-03-11T07:48:14" />
+        <meta property="og:description" content="1、学习两个关键接口 wx.getMenuButtonBoundingClientRect()和wx.getSystemInfo，里面分别有的信息和手机机型的信息（如下图），关键理解里面的长高定义。 " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="微信小程序的自定义导航栏组件和部分数据处理方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">微信小程序的自定义导航栏组件和部分数据处理方法</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h2>1、学习两个关键接口</h2> <p>wx.getMenuButtonBoundingClientRect()和wx.getSystemInfo，里面分别有<img decoding="async" alt="" height="31" src="http://img.555519.xyz/uploads/20221230/9af91a17d0a380a0585ba4d9e5dbf052.jpg">的信息和手机机型的信息（如下图），关键理解里面的长高定义。</p> <p>&nbsp;</p> <p>&nbsp;<img fetchpriority="high" decoding="async" alt="" height="592" src="http://img.555519.xyz/uploads/20221230/9479475e3af2d3d40fbdefdeaa9c5ae1.jpg"><img decoding="async" alt="" height="248" src="http://img.555519.xyz/uploads/20221230/045f9fe4ae76898b8d0f73b2608dbc1d.jpg"></p> <h2>&nbsp;2、通过已获取到信息，进行计算和设计</h2> <p>以下是部分代码，根据个人需求，我在app.js里面选择性存储了一些信息。并且思考每个界面所需要的按键，比如首页是不需要返回键的，可以设计一个事件进行隐藏部分键位。</p> <pre><code class="language-javascript"> globalData: {     navheight: 0,     navtop: 0,     windowHeight: 0,     height: 0,     phoneCapsule: "",     phoneInformation: "",   },</code></pre> <pre><code class="language-javascript"> let menuButtonObject =wx.getMenuButtonBoundingClientRect();     console.log(menuButtonObject)      wx.getSystemInfo({       success: (res) =&gt; {         console.log(res)         this.globalData.navheight = res.statusBarHeight + menuButtonObject.height + (menuButtonObject.top - res.statusBarHeight)*2,         this.globalData.navtop = menuButtonObject.top,         this.globalData.windowHeight = res.windowHeight-menuButtonObject.right,         this.globalData.height = menuButtonObject.height,         this.globalData.phoneCapsule = menuButtonObject         this.globalData.phoneInformation = res       }     })</code></pre> <h2>3、样式代码书写，导航栏最好封装成一个组件，方便各个界面的调用。</h2> <p>wxml：</p> <pre><code class="language-html">&lt;view class="navBox" style="height:{<!-- -->{navheight}}px;"&gt;   &lt;view style="margin-top:{<!-- -->{navtop}}px; width: 100%;"&gt;&lt;/view&gt;   &lt;view class="nav_title" style=' line-height:{<!-- -->{height}}px;margin-top:{<!-- -->{navtop}}px;font-size:{<!-- -->{height*0.6}}px'&gt;     {<!-- -->{navbarData.title}}   &lt;/view&gt;    &lt;view class="nav_capsule" style='height:{<!-- -->{navheight - navtop}}px;'  wx:if='{<!-- -->{navbarData.showCapsule}}'&gt;     &lt;view bindtap='_navback' wx:if='{<!-- -->{!share}}'&gt;       &lt;image src='/asset/cjnIcon/back.png' mode='heightFix' class='back-pre' style="height: {<!-- -->{height*0.50}}px; "&gt;&lt;/image&gt;     &lt;/view&gt;     &lt;view class='navbar-v-line' wx:if='{<!-- -->{!share}}' style="height: {<!-- -->{height*0.35}}px"&gt;&lt;/view&gt;     &lt;view bindtap='_backhome'&gt;       &lt;image src='/asset/cjnIcon/home.png' mode='heightFix' class='back-home' style="height: {<!-- -->{height*0.55}}px"&gt;&lt;/image&gt;     &lt;/view&gt;   &lt;/view&gt; &lt;/view&gt;</code></pre> <p>wxss:</p> <pre><code class="language-css">.navBox {   position: fixed;   width: 100%;   top: 0;   color: #fff;   z-index: 999;   background-color: #6b9edd; } .nav_title {   position: fixed;   text-align: center;   height: 1px;   top: 0;   left: 0;   right: 0;   bottom: 0;   margin: auto;   color: #fff;   font-weight: 600; }  .nav_capsule {   display: flex;   align-items: center;   margin-left: 30rpx;   width: 140rpx;   justify-content: space-between;   height: 100%; }  .navbar-v-line {   width: 1px;   height: 32rpx;   background-color: #e5e5e5; }    </code></pre> <p>js:</p> <pre><code class="language-javascript">const app = getApp() Component({   properties: {     navbarData: {   //navbarData   由父页面传递的数据，变量名字自命名       type: Object,       value: {},       observer: function (newVal, oldVal) {}     }   },   data: {     navheight: 0,     navtop: 0,     windowHeight: 0,     height: 0,     phoneCapsule: "",     phoneInformation: "",     //默认值  默认显示左上角     navbarData: {       showCapsule: 0     }   },   attached: function () {     this.setData({       height: app.globalData.height     })     console.log(this.data.height)     this.setData({       navheight: app.globalData.navheight     })     console.log(this.data.navheight)     this.setData({       navtop: app.globalData.navtop     })     console.log(this.data.navtop)     this.setData({       windowHeight: app.globalData.windowHeight     })     console.log(this.data.windowHeight)     this.setData({       phoneCapsule: app.globalData.phoneCapsule     })     console.log(this.data.phoneCapsule)     this.setData({       phoneInformation: app.globalData.phoneInformation     })     console.log(this.data.phoneInformation)   },   methods: {        // 返回上一页面     _navback() {       var pages = getCurrentPages(); // 当前页面       console.log(pages)       var beforePage = pages[pages.length - 1]; // 前一个页面       console.log(beforePage.route)       console.log("beforePage");       console.log(beforePage);       if(beforePage.route=="pages/personalProject/personalProject"){         wx.switchTab({           url: '/pages/center/center',         })       }else if(pages.length==1){         wx.switchTab({           url: '/pages/home/home',         })       }       else{         wx.navigateBack({           success: function() {               beforePage.onLoad(); // 执行前一个页面的onLoad方法           }       });       }       // wx.navigateBack()     },   //返回到首页     _backhome() {       wx.switchTab({         url: '/pages/home/home',       })     }   }  }) </code></pre> <h2>4、对返回键位的逻辑进行分析</h2> <p>观察上方js文件代码，在返回处，因为有一个界面会掉入一个“返回陷阱”（自己命名的），我做了一些处理，单独处理它的返回。此处是通过理解了&nbsp;getCurrentPages()后设计了，至于以后有没有其他更加好的方法，还有待学习。</p> <h2>5、效果图</h2> <p><img loading="lazy" decoding="async" alt="" height="91" src="http://img.555519.xyz/uploads/20221230/5faffe176503923474dc3cd0861f7345.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="88" src="http://img.555519.xyz/uploads/20221230/04ea453991bd490e314a8d688f8275ce.jpg"></p> </h1> <h2>数组合并和数组动态添加字符串</h2> <p>直接上代码</p> <pre><code class="language-javascript">wx.request({       url: 'http://122.9.117.66:8080/project/getProjectKeywords',       method: 'GET',       fail: (res) =&gt; {         console.log(res);       },       success: (res) =&gt; {         console.log(res);         for (var i = 0; i &lt; res.data.keywords.length; i++) {           var name = "keywordSelectData[" + i + "].name";           var value = "keywordSelectData[" + i + "].value";           this.setData({             [name]: res.data.keywords[i].Keyword,             [value]: res.data.keywords[i].Keyword,           })         };         console.log(this.data.keywordSelectData)         for (var i = 0; i &lt; res.data.keywords.length; i++) {           let detailValue = this.data.keywordSelectData.map(it =&gt; it.name)           this.setData({             keywords: detailValue           })         };         wx.setStorage({           key: "keywordSelectData",           data: this.data.keywordSelectData         })         wx.setStorage({           key: "keywords",           data: this.data.keywords         })       }</code></pre> <p>想要从拿到的数据</p> <p><img loading="lazy" decoding="async" alt="" height="865" src="http://img.555519.xyz/uploads/20221230/d523b795d8a3fb118a576294e87d399c.jpg"></p> <p>&nbsp;想要得到的效果</p> <p><img loading="lazy" decoding="async" alt="" height="586" src="http://img.555519.xyz/uploads/20221230/8a950937af519540cc8659886005c59a.jpg"></p> <p>&nbsp;<img loading="lazy" decoding="async" alt="" height="463" src="http://img.555519.xyz/uploads/20221230/8dde5cb21b55eb64fb8838f8376ddb42.jpg"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71110.htm">宠物鲜粮市场规模分析报告（宠物粮食市场）</a></p>
+                                        <p>下一个：<a href="/news/article-71780.htm">美联众合动物医院创始人（美联众合动物医院简介）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-58248.htm" title="面向对象的7种设计原则(2)-接口隔离原则">面向对象的7种设计原则(2)-接口隔离原则</a></li>
+                        <li class="py-2"><a href="/news/article-51679.htm" title="C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism">C# 一个基于.NET Core3.1的开源项目帮你彻底搞懂WPF框架Prism</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-26-free-node-subscribe.htm" title="2月26日→19.7M/S|2025年最新免费节点Outline Node订阅链接地址">2月26日→19.7M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-high-speed-nodes.htm" title="1月12日→19.4M/S|2025年最新免费节点Outline Node订阅链接地址">1月12日→19.4M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70448.htm" title="Docker面试题">Docker面试题</a></li>
+                        <li class="py-2"><a href="/news/article-65957.htm" title="兽用疫苗稀释液的说明书怎么写（兽用疫苗专用稀释液成分）">兽用疫苗稀释液的说明书怎么写（兽用疫苗专用稀释液成分）</a></li>
+                        <li class="py-2"><a href="/news/article-69802.htm" title="蚁群算法（Ant System）（AS）">蚁群算法（Ant System）（AS）</a></li>
+                        <li class="py-2"><a href="/news/article-45103.htm" title="宠物粮好卖吗（宠物粮市场前景怎么样）">宠物粮好卖吗（宠物粮市场前景怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-68538.htm" title="被猫抓伤的图片痕迹（被猫抓伤的图片是什么样子）">被猫抓伤的图片痕迹（被猫抓伤的图片是什么样子）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-node-subscribe-links.htm" title="2月9日→23M/S|2025年最新免费节点Outline Node订阅链接地址">2月9日→23M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

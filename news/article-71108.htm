@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-71108.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>java Socket 一行一行地读和一行一行的写</title>
+        <meta name="description" content="最近在写与socket有关的编程，遇到了一个问题——如何一行一行的从服务器文件读出来，然后通过socket发到客户端，在客户端有一行一行的写入文件。刚开始，一行一行的读是没有什么问题的，可是流发到客户" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-71108.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="java Socket 一行一行地读和一行一行的写" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/1fe64a3738acd81848e78610622ff58a.webp" />
+        <meta property="og:release_date" content="2025-03-10T04:37:26" />
+    <meta property="og:updated_time" content="2025-03-10T04:37:26" />
+        <meta property="og:description" content="最近在写与socket有关的编程，遇到了一个问题——如何一行一行的从服务器文件读出来，然后通过socket发到客户端，在客户端有一行一行的写入文件。刚开始，一行一行的读是没有什么问题的，可是流发到客户" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java Socket 一行一行地读和一行一行的写">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">java Socket 一行一行地读和一行一行的写</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size:18px">最近在写与socket有关的编程，遇到了一个问题——如何一行一行的从服务器文件读出来，然后通过socket发到客户端，在客户端有一行一行的写入文件。刚开始，一行一行的读是没有什么问题的，可是流发到客户端后，却不能用一行一行的写入到本地文件，即使在接收流的时候，用到了</span></p> <pre><code class="language-java"><span style="font-size:18px;">...... bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(savePath))); while((line = br.readLine()) != null) { bw.write(line + "\r\n"); // 或者bw.newLine(); // 或者String str = line + "\n"</span><span style="font-size:18px;"> } ...... </span></code></pre> <p><span style="font-size:18px">还是其他方法，只要你在发出端不添加换行，问题还是解决不了，<span style="color:#FF0000">正确的方法是，在流的发出端和流的接收端同时使用换行</span>，如下：</span></p> <pre><code class="language-java"><span style="font-size:18px;">bw.write(line +　＂＼ｒ＼ｎ＂);</span></code></pre> <p><font size="4"><font size="4"><span style="font-size:18px"><span style="font-size:18px"><span style="font-size:18px"><span style="font-size:18px"><span style="font-size:18px"><span style="font-size:18px"><span style="font-size:18px"><span style="font-size:18px"><span style="font-size:18px"></span></span></span></span></span><br /></span></span></span></span></font></font></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-70450.htm">宠物医院看仓鼠贵吗（普通宠物医院看仓鼠吗）</a></p>
+                                        <p>下一个：<a href="/news/article-71110.htm">宠物鲜粮市场规模分析报告（宠物粮食市场）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-64739.htm" title="开一家宠物医院大概多少钱（开一家宠物医院赚钱吗）">开一家宠物医院大概多少钱（开一家宠物医院赚钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-46592.htm" title="十大动物疫苗公司有哪些品牌名称 十大动物疫苗公司有哪些品牌名称图片">十大动物疫苗公司有哪些品牌名称 十大动物疫苗公司有哪些品牌名称图片</a></li>
+                        <li class="py-2"><a href="/news/article-35740.htm" title="美联众合动物医院logo（美联众合动物医院地址）">美联众合动物医院logo（美联众合动物医院地址）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-node-share.htm" title="1月29日→20.9M/S|2025年最新免费节点Outline Node订阅链接地址">1月29日→20.9M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54342.htm" title="天津宠物帮领养中心官网查询（天津宠物帮领养中心官网查询地址）">天津宠物帮领养中心官网查询（天津宠物帮领养中心官网查询地址）</a></li>
+                        <li class="py-2"><a href="/news/article-46087.htm" title="益沣源肥业有限公司（益沣源肥业有限公司招聘）">益沣源肥业有限公司（益沣源肥业有限公司招聘）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-node-share.htm" title="2月3日→19.6M/S|2025年最新免费节点Outline Node订阅链接地址">2月3日→19.6M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-61135.htm" title="妙三多疫苗一共几针（妙三多疫苗一共几针多少钱）">妙三多疫苗一共几针（妙三多疫苗一共几针多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-39136.htm" title="猫咪驱虫操作视频（猫咪驱虫操作视频教程）">猫咪驱虫操作视频（猫咪驱虫操作视频教程）</a></li>
+                        <li class="py-2"><a href="/news/article-44111.htm" title="上海正规宠物领养机构排名（上海2020年宠物领养活动）">上海正规宠物领养机构排名（上海2020年宠物领养活动）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
