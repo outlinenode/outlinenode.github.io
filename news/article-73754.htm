@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-73754.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpringBoot 起步依赖+SpringBoot配置</title>
+        <meta name="description" content="1）版本锁定 如spring-boot-starter-parent中，指定了版本，子module中不需要再次指定版本 &lt;dependencyManagement&gt;&lt;/depende" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-73754.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="SpringBoot 起步依赖+SpringBoot配置" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/6c42afb90d886f5e4569705f53417e51.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:06:41" />
+    <meta property="og:updated_time" content="2025-03-14T07:06:41" />
+        <meta property="og:description" content="1）版本锁定 如spring-boot-starter-parent中，指定了版本，子module中不需要再次指定版本 &lt;dependencyManagement&gt;&lt;/depende" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot 起步依赖+SpringBoot配置">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">SpringBoot 起步依赖+SpringBoot配置</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <p>1）版本锁定<br /> 如spring-boot-starter-parent中，指定了版本，子module中不需要再次指定版本</p> <pre><code class="prism language-java"><span class="token generics"><span class="token punctuation">&lt;</span>dependencyManagement<span class="token punctuation">&gt;</span></span><span class="token operator">&lt;</span><span class="token operator">/</span>dependencyManagement<span class="token operator">&gt;</span></code></pre> <p>2）依赖传递<br /> 如spring-boot-starter-web中</p> </h1> <h2><a id="_12" rel="nofollow"></a>（一）配置文件分类</h2> <p>SpringBoot 是基于约定的，所以很多配置都有默认值，但如果想使用自己的配置替换默认的话，就可以使用application.properties 或者 application.yml （application.yaml）进行配置。</p> <ul> <li>properties<br /><code>server.port=8080</code></li> <li>yml<br /><code>server: port: 8080</code></li> </ul> <p>如果resource目录下同时存在以下配置文件：<br /> application.properties<br /> application.yml<br /> application.yaml<br /> 则优先级application.properties 最高，其次是application.yml，最后是application.yaml。即若3个配置文件存在同一个键值对，实际上取的值是application.properties文件中的；他们是叠加读取的。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/9dff67873a7d61183de293467d20e49a.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <h2><a id="yaml_29" rel="nofollow"></a>（二）yaml</h2> <p>YAML全称是YAML Ain’t Markup Language，意思是yaml不是一种标记性语言。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/b9bf797fc26f3fd77d7caaa49846f0aa.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/9179a651a1f3158093e3fa9c4c0651e8.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/d2990380b4152315bd79836df8abd16d.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/78e8999557f684ad532a03be6be7e6a5.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/99270d2eb074a572d50898a051e2c27a.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <h2><a id="_38" rel="nofollow"></a>（三）读取配置文件内容</h2> <h3><a id="1Value_39" rel="nofollow"></a>1、@Value</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/0d680a8c3c2bf703b15b32fb6b2af3c5.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/dd5aa9f6c6eeb54d1138e365e6c84ecd.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <h3><a id="2Environment_43" rel="nofollow"></a>2、Environment</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/b1670cd1ad75375e034bb75fdc137aff.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/01bd417c6026bdecfbf95946a906bfa9.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <h3><a id="3_ConfigurationProperties_47" rel="nofollow"></a>3、 @ConfigurationProperties</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/448ef92876f01bfb5bc13b50e1b06fa9.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/0959ff327e6eeb65cf129edd4a993d90.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/e00f012fb79d071bee4a3e5234be125c.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <p>加上下面这依赖之后，自己写的类上的属性就能在配置文件里有提示了。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/62f06d58fa3078ff522eda06d5aabc17.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/126a5a101ffbe02cb47a6428e06363e5.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <h2><a id="profile_56" rel="nofollow"></a>（四）profile</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/52f9b752af98d792e48ad3b8c445128a.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/c638c2172afc357f821f4a2c7f979686.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/e88c733492c7af916fbe24f222e59ab5.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/ee809ae534de4f9433a916644d1af5b7.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/dd937b4a39a5b486c32b2f427d4cec48.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/ff2b3d8d53f0c76536c6977049ac322d.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/2b440db8aa5b293de931a60aebeefc6e.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <h2><a id="_69" rel="nofollow"></a>（五）内部配置加载顺序</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221130/660bf91d8f803a4ef1807bf97432f8b6.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /> resource目录下是属于第4种，在classpath的根目录下。</p> <p>多个文件都会加载，形成互补的配置；同名变量生效优先级1&gt;2&gt;3&gt;4。<br /> 说明：1和2是不会打进jar包文件里的，因为他不符合maven结构<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/1f12099a7231345125bb23f0306e8503.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> <h2><a id="_77" rel="nofollow"></a>（六）外部配置加载顺序</h2> <p>https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/8be272eb46775740d49f5eaef839f088.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /> 17种外部配置方式<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/c0264ccd8ff90a063048d066bba3f02a.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221130/a450b1c587b8d20400a05468cdb83c23.jpg" alt="SpringBoot 起步依赖+SpringBoot配置"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73088.htm">华畜兽药怎么样?（华畜兽药怎么样有人使用么如何查询）</a></p>
+                                        <p>下一个：<a href="/news/article-73755.htm">mysql中的日期时间类型有哪些？</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-54891.htm" title="动物疫苗证书 动物疫苗证书图片">动物疫苗证书 动物疫苗证书图片</a></li>
+                        <li class="py-2"><a href="/news/article-64739.htm" title="开一家宠物医院大概多少钱（开一家宠物医院赚钱吗）">开一家宠物医院大概多少钱（开一家宠物医院赚钱吗）</a></li>
+                        <li class="py-2"><a href="/news/article-55457.htm" title="北京看宠物最好的医院是哪家（北京看宠物最好的医院是哪家好）">北京看宠物最好的医院是哪家（北京看宠物最好的医院是哪家好）</a></li>
+                        <li class="py-2"><a href="/news/article-49037.htm" title="object中的equals方法">object中的equals方法</a></li>
+                        <li class="py-2"><a href="/news/article-51141.htm" title="成都宠物领养中心地址电话是多少（成都宠物领养中心地址电话是多少号码）">成都宠物领养中心地址电话是多少（成都宠物领养中心地址电话是多少号码）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-27-free-high-speed-nodes.htm" title="2月27日→21.9M/S|2025年最新免费节点Outline Node订阅链接地址">2月27日→21.9M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-node-subscribe-links.htm" title="1月23日→21.2M/S|2025年最新免费节点Outline Node订阅链接地址">1月23日→21.2M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38657.htm" title="Redis Cluster 集群搭建与扩容、缩容">Redis Cluster 集群搭建与扩容、缩容</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-node-share.htm" title="1月29日→20.9M/S|2025年最新免费节点Outline Node订阅链接地址">1月29日→20.9M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46087.htm" title="益沣源肥业有限公司（益沣源肥业有限公司招聘）">益沣源肥业有限公司（益沣源肥业有限公司招聘）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
