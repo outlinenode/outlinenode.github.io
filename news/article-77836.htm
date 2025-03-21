@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-77836.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spring boot Actuator之自定义Endpoint</title>
+        <meta name="description" content="本文基于spring boot 2.2.0 release版本。  在上一篇文章《spring boot Actuator原理详解之启动》详细介绍了在web环境下，Actuator是如何启动的，这里对" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-77836.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="spring boot Actuator之自定义Endpoint" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/e29ea5225aee2482f5f77ec3a108f50f.webp" />
+        <meta property="og:release_date" content="2025-03-20T10:02:29" />
+    <meta property="og:updated_time" content="2025-03-20T10:02:29" />
+        <meta property="og:description" content="本文基于spring boot 2.2.0 release版本。  在上一篇文章《spring boot Actuator原理详解之启动》详细介绍了在web环境下，Actuator是如何启动的，这里对" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="spring boot Actuator之自定义Endpoint">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">spring boot Actuator之自定义Endpoint</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <blockquote> <p>本文基于spring boot 2.2.0 release版本。</p> </blockquote> <p>在上一篇文章《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_38308374/article/details/114273724"  rel="nofollow">spring boot Actuator原理详解之启动</a>》详细介绍了在web环境下，Actuator是如何启动的，这里对流程做一个简单的总结：</p> <ol> <li>扫描所有@Endpoint注解的类，这些类都是Endpoint；</li> <li>使用过滤器对Endpoint对象进行过滤，没有被过滤掉的才可以进入下一步；</li> <li>读取Endpoint对象的每个方法，判断是否有@ReadOperation、@WriteOperation、@DeleteOperation三个注解，如果有，则针对每个被注解的方法创建操作对象Operation；</li> <li>根据操作对象、Endpoint对象、Endpoint名创建为RequestMappingInfo，并将其注册到spring mvc中；</li> <li>注册成功之后，Endpoint对象便可以对外提供服务。</li> </ol> <p>明白了上面整个启动流程之后，我们也可以编写一个自定义的Endpoint。<br /> 自定义Endpoint的关键点：</p> <ol> <li>类上必须有注解@Endpoint，注解必须设置id值，否则启动抛出如下异常：<code>Caused by: java.lang.IllegalStateException: No @Endpoint id attribute specified for XXXClass</code>；</li> <li>必须指定方法注解为下面三个中一个：<code>@ReadOperation、@WriteOperation、@DeleteOperation</code>；</li> <li>注解@Selector可以指定路径参数，比如<code>/actuator/caches/{cache}</code>花括号里面的内容是路径参数，我们可以在方法入参上添加@Selector来指定路径参数，比如<code>public String counters(@Selector int value)</code>；</li> <li>默认Endpoint对象的方法都是以json格式返回客户端，可以通过设置<code>@ReadOperation、@WriteOperation、@DeleteOperation</code>的produces属性指定其他格式。</li> </ol> <p>下面给出一个自定义Endpoint的例子：</p> <pre><code class="prism language-java"><span class="token comment">/**  * 统计方法该Endpoint对象的次数  */</span> <span class="token annotation punctuation">@Component</span> <span class="token annotation punctuation">@Endpoint</span><span class="token punctuation">(</span>id<span class="token operator">=</span><span class="token string">"counter"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Counter</span>  <span class="token punctuation">{<!-- --></span>     <span class="token keyword">private</span> AtomicInteger cnt<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token annotation punctuation">@ReadOperation</span>     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">counter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> cnt<span class="token punctuation">.</span><span class="token function">getAndAdd</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@ReadOperation</span>     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">counters</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Selector</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> cnt<span class="token punctuation">.</span><span class="token function">getAndAdd</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>上面这个类只是一个示例，并没有实际意义。运行起来后，访问<code>http://localhost:8079/actuator/counter</code>，每次访问都会返回一个比之前大1的数字。</p> <p>我们还可以使用注解@EndpointWebExtension扩展已有的Endpoint。<br /> 下面是spring提供的对EnvironmentEndpoint的扩展：</p> <pre><code class="prism language-java"><span class="token annotation punctuation">@EndpointWebExtension</span><span class="token punctuation">(</span>endpoint <span class="token operator">=</span> EnvironmentEndpoint<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">EnvironmentEndpointWebExtension</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">private</span> <span class="token keyword">final</span> EnvironmentEndpoint delegate<span class="token punctuation">;</span> 	<span class="token keyword">public</span> <span class="token function">EnvironmentEndpointWebExtension</span><span class="token punctuation">(</span>EnvironmentEndpoint delegate<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">this</span><span class="token punctuation">.</span>delegate <span class="token operator">=</span> delegate<span class="token punctuation">;</span> 	<span class="token punctuation">}</span>  	<span class="token annotation punctuation">@ReadOperation</span> 	<span class="token keyword">public</span> WebEndpointResponse<span class="token generics function"><span class="token punctuation">&lt;</span>EnvironmentEntryDescriptor<span class="token punctuation">&gt;</span></span> <span class="token function">environmentEntry</span><span class="token punctuation">(</span><span class="token annotation punctuation">@Selector</span> String toMatch<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		EnvironmentEntryDescriptor descriptor <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>delegate<span class="token punctuation">.</span><span class="token function">environmentEntry</span><span class="token punctuation">(</span>toMatch<span class="token punctuation">)</span><span class="token punctuation">;</span> 		<span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">WebEndpointResponse</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>descriptor<span class="token punctuation">,</span> <span class="token function">getStatus</span><span class="token punctuation">(</span>descriptor<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token punctuation">}</span>  	<span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">getStatus</span><span class="token punctuation">(</span>EnvironmentEntryDescriptor descriptor<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token keyword">if</span> <span class="token punctuation">(</span>descriptor<span class="token punctuation">.</span><span class="token function">getProperty</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 			<span class="token keyword">return</span> WebEndpointResponse<span class="token punctuation">.</span>STATUS_NOT_FOUND<span class="token punctuation">;</span> 		<span class="token punctuation">}</span> 		<span class="token keyword">return</span> WebEndpointResponse<span class="token punctuation">.</span>STATUS_OK<span class="token punctuation">;</span> 	<span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>就web环境下来说，如果扩展类的方法有与原类相同的http请求路径，那么扩展类会替换掉原来的方法，也就是说，访问该路径时，不会访问到原类的方法，而是访问到扩展类。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-77147.htm">动物疫苗在哪里买便宜 动物疫苗在哪里买便宜点</a></p>
+                                        <p>下一个：<a href="/news/article-77837.htm">宠物猫打疫苗一共多少钱一只（宠物猫咪打疫苗多少钱一针）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-63506.htm" title="夏天出门旅行需要带什么(夏天出去旅行必备清单)">夏天出门旅行需要带什么(夏天出去旅行必备清单)</a></li>
+                        <li class="py-2"><a href="/news/article-43119.htm" title="宠物粮食产地 宠物粮食产地排名">宠物粮食产地 宠物粮食产地排名</a></li>
+                        <li class="py-2"><a href="/news/article-53253.htm" title="Spring Boot 进阶 | 01 使用Feign作为HTTP客户端调用远程HTTP服务">Spring Boot 进阶 | 01 使用Feign作为HTTP客户端调用远程HTTP服务</a></li>
+                        <li class="py-2"><a href="/news/article-49562.htm" title="MySQL 获取系统时间/系统日期/日期时间的函数">MySQL 获取系统时间/系统日期/日期时间的函数</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-node-share-links.htm" title="1月13日→18.3M/S|2025年最新免费节点Outline Node订阅链接地址">1月13日→18.3M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-51681.htm" title="宠物店领养狗狗可靠吗（宠物店领养宠物）">宠物店领养狗狗可靠吗（宠物店领养宠物）</a></li>
+                        <li class="py-2"><a href="/news/article-73087.htm" title="vue中的共享数据管理vuex">vue中的共享数据管理vuex</a></li>
+                        <li class="py-2"><a href="/news/article-59393.htm" title="SpringBoot之把数据库导出到Excel表">SpringBoot之把数据库导出到Excel表</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-free-node-subscribe-links.htm" title="3月4日→22.7M/S|2025年最新免费节点Outline Node订阅链接地址">3月4日→22.7M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-node-subscribe.htm" title="2月12日→22.8M/S|2025年最新免费节点Outline Node订阅链接地址">2月12日→22.8M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
