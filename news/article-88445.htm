@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-88445.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreeRTOS进阶之任务通知示例完全解析_操作系统</title>
+        <meta name="description" content="目录  前言 1.发送通知  1.1 xTaskGenericNotify() 1.2 vTaskNotifyGiveFromISR() 1.3 xTaskGenericNotifyFromISR()" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-88445.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="FreeRTOS进阶之任务通知示例完全解析_操作系统" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/df72ea5e69e7cdb0fcf4a90145419999.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:11:09" />
+    <meta property="og:updated_time" content="2025-04-04T09:11:09" />
+        <meta property="og:description" content="目录  前言 1.发送通知  1.1 xTaskGenericNotify() 1.2 vTaskNotifyGiveFromISR() 1.3 xTaskGenericNotifyFromISR()" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="FreeRTOS进阶之任务通知示例完全解析_操作系统">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">FreeRTOS进阶之任务通知示例完全解析_操作系统</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">1.发送通知</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">1.1 xTaskGenericNotify()</a></li> <li><a href="#_lab2_1_1" rel="nofollow">1.2 vTaskNotifyGiveFromISR()</a></li> <li><a href="#_lab2_1_2" rel="nofollow">1.3 xTaskGenericNotifyFromISR()</a></li> </ul> <li><a href="#_label2" rel="nofollow">2.等待通知</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_2_3" rel="nofollow">2.1 ulTaskNotifyTake()</a></li> <li><a href="#_lab2_2_4" rel="nofollow">2.2 xTaskNotifyWait()</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>在FreeRTOS版本V8.2.0中推出了全新的功能：任务通知。在大多数情况下，任务通知可以替代二进制信号量、计数信号量、事件组，可以替代长度为1的队列（可以保存一个32位整数或指针值），并且任务通知速度更快、使用的RAM更少！我在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/243682.htm"  target="_blank" rel="nofollow">FreeRTOS任务通知</a>一文中介绍了任务通知如何使用以及局限性，今天我们将分析任务通知的实现源码，看一下任务通知是如何做到效率与RAM消耗双赢的。</p> <p>在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/243799.htm"  target="_blank" rel="nofollow">FreeRTOS信号量分析</a>一文中我们已经知道，FreeRTOS的信号量是使用队列机制实现的，数据结构也完全是队列的那一套。而任务通知则不同，它的数据结构嵌在任务TCB（任务控制块，见<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/243826.htm"   target="_blank" rel="nofollow">FreeRTOS进阶之任务创建</a>中的，并且数据结构十分简单，涉及到任务TCB的两个字段，我们将它单独列出来：</p> <div class="ay1code"> <pre class="brush:cpp;">volatile uint32_t ulNotifiedValue; 	/*任务通知值*/    volatile uint8_t ucNotifyState;	/*任务通知状态，标识任务是否在等待通知等*/</pre> </div> <p>这两个字段占用5字节RAM（本文都是在32位系统下讨论），而一个队列数据结构至少占用76字节RAM！这不是同一数量级的，所以任务通知在RAM消耗上完胜。<br />在分析队列和信号量的文章中，我们知道在使用队列、信号量前，必须先创建队列和信号量，目的是为了创建队列数据结构。比如使用API函数xQueueCreate()创建队列，用API函数xSemaphoreCreateBinary()创建二进制信号量等等。再来看任务通知，由于任务通知的数据结构包含在任务TCB中，只要任务存在，任务通知数据结构就已经创建完毕，可以直接使用！在易用性上，任务通知再次获胜。</p> <p>要想了解任务通知在性能上占优的原因，就要分析源代码了。</p> <p>只有任务可以等待通知，中断服务函数中不可以。如果等待的通知无效，任务会进入阻塞状态，我们可以将等待通知的任务看作是消费者；其它任务和中断可以向等待通知的任务发送通知，发送通知的任务和中断服务函数可以认为是生产者。处于阻塞的消费者得到通知后会再次进入就绪态。</p> <p>任务通知API函数主要有两类，一类发送通知，一类等待通知。发送通知API函数可以用于任务和中断服务函数，等待通知API函数只能用在任务中。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>1.发送通知</h2> <p>我们先看一下发送通知API函数。这类函数比较多，有6个。但仔细分析会发现它们只能完成3种操作，每种操作有两个API函数，分别为带中断保护版本和不带中断保护版本。FreeRTOS将API细分为带中断保护版本和不带中断保护版本是为了节省中断服务程序处理时间，提升性能。<br />和信号量类似，大多数发送通知API接口也是由宏实现的，如表1-1所示。</p> <p>表1-1：发送通知API函数与实际调用函数列表</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/af864be0e0cc105782878fa0a9acc180.jpg"></p> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>1.1 xTaskGenericNotify()</h3> <p>不带中断保护的发送通知API函数实际都是调用函数xTaskGenericNotify()实现的，我们看一下这个函数原型：</p> <div class="ay1code"> <pre class="brush:cpp;">BaseType_t xTaskGenericNotify(           TaskHandle_t xTaskToNotify,           uint32_t ulValue,           eNotifyAction eAction,           uint32_t *pulPreviousNotificationValue )</pre> </div> <p><code>xTaskToNotify</code>：被通知的任务句柄。</p> <p><code>ulValue</code>：更新的通知值</p> <p><code>eAction</code>：枚举类型，指明更新通知值的方法，枚举变量成员以及作用见表1-2所示。</p> <p><code>pulPreviousNotifyValue</code>：回传未被更新的任务通知值。如果不需要回传未被更新的任务通知值，这里设置为NULL。</p> <p>表1-2：eNotifyAction枚举成员以及作用</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/9a7d4b69909dff1aac87029dfd019fb9.jpg"></p> <p>与入队操作相比较，发送通知API函数显得非常简单，整理后的源码如下所示：</p> <div class="ay1code"> <pre class="brush:cpp;">BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue )  {  TCB_t * pxTCB;  BaseType_t xReturn = pdPASS;  uint8_t ucOriginalNotifyState;      configASSERT( xTaskToNotify );      pxTCB = ( TCB_t * ) xTaskToNotify;      taskENTER_CRITICAL();      {          if( pulPreviousNotificationValue != NULL )          {  			/* 回传更新前的通知值*/              *pulPreviousNotificationValue = pxTCB-&gt;ulNotifiedValue;          }          ucOriginalNotifyState = pxTCB-&gt;ucNotifyState;          pxTCB-&gt;ucNotifyState = taskNOTIFICATION_RECEIVED;           switch( eAction )          {              case eSetBits   :                  pxTCB-&gt;ulNotifiedValue |= ulValue;                  break;              case eIncrement :                  ( pxTCB-&gt;ulNotifiedValue )++;                  break;              case eSetValueWithOverwrite :                  pxTCB-&gt;ulNotifiedValue = ulValue;                  break;              case eSetValueWithoutOverwrite :                  if( ucOriginalNotifyState != taskNOTIFICATION_RECEIVED )                  {                      pxTCB-&gt;ulNotifiedValue = ulValue;                  }                  else                  {                      /* 上次的通知值还未取走,本次通知值丢弃 */                      xReturn = pdFAIL;                  }                  break;              case eNoAction:                  /* 不需要更新通知值*/                  break;          }          traceTASK_NOTIFY();           /* 如果被通知的任务因为等待通知而阻塞,现在将它解除阻塞 */          if( ucOriginalNotifyState == taskWAITING_NOTIFICATION )          {              ( void ) uxListRemove( &amp;( pxTCB-&gt;xStateListItem ) );              prvAddTaskToReadyList( pxTCB );              if( pxTCB-&gt;uxPriority &gt; pxCurrentTCB-&gt;uxPriority )              {                  /* 如果被通知的任务优先级高于当前任务,则触发PendSV中断,退出临界区后进行上下文切换T*/                  taskYIELD_IF_USING_PREEMPTION();              }          }      }      taskEXIT_CRITICAL();       return xReturn;  }</pre> </div> <p>函数的功能可以概括为：按照指定的方法更新通知值，如果被通知的任务处于阻塞状态，则将它解除阻塞，解除阻塞任务的优先级如果大于当前任务的优先级，则触发一次任务切换。</p> <p>与释放信号量API函数相比，本函数少了很多调用子函数开销、少了很多判断、少了对事件列表的操作等等，确实是比释放信号量的实现要简洁的多。这也是有原因的，因为任务通知有它自己的局限性，并不能完全代替信号量。比如一个任务只能阻塞到一个通知上，如想要实现多个任务阻塞到同一个事件上，只能使用信号量了。也正是因为这种局限性，使得任务通知实现起来简单高效，并且大多数情况下，任务通知的方法就已经能解决问题了。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>1.2 vTaskNotifyGiveFromISR()</h3> <p>这个API函数是vTaskNotifyGive()的带中断保护版本，是专门设计用来在某些情况下代替二进制信号量和计数信号量的。函数也很简单，我们直接看源码，源码经过整理和注释，以方便理解。</p> <div class="ay1code"> <pre class="brush:cpp;">void vTaskNotifyGiveFromISR( TaskHandle_t xTaskToNotify, BaseType_t *pxHigherPriorityTaskWoken )  {  TCB_t * pxTCB;  uint8_t ucOriginalNotifyState;  UBaseType_t uxSavedInterruptStatus;      pxTCB = ( TCB_t * ) xTaskToNotify;      uxSavedInterruptStatus = portSET_INTERRUPT_MASK_FROM_ISR();      {          ucOriginalNotifyState = pxTCB-&gt;ucNotifyState;          pxTCB-&gt;ucNotifyState = taskNOTIFICATION_RECEIVED;          /* 通知值加1,相当于释放了一个信号量 */          ( pxTCB-&gt;ulNotifiedValue )++;          /* 如果目标任务因为等待通知而阻塞,现在将它解除阻塞*/          if( ucOriginalNotifyState == taskWAITING_NOTIFICATION )          {              /* 如果调度器正常,将任务放入就绪列表,否则放入挂起就绪列表 */              if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )              {                  ( void ) uxListRemove( &amp;( pxTCB-&gt;xStateListItem ) );                  prvAddTaskToReadyList( pxTCB );              }              else              {                  vListInsertEnd( &amp;( xPendingReadyList ), &amp;( pxTCB-&gt;xEventListItem ) );              }              if( pxTCB-&gt;uxPriority &gt; pxCurrentTCB-&gt;uxPriority )              {                  /* 如果解除阻塞的任务优先级大于当前任务优先级,则设置上下文切换标识,等退出函数后手动切换上下文,或者在系统节拍中断服务程序中自动切换上下文*/                  if( pxHigherPriorityTaskWoken != NULL )                  {                      *pxHigherPriorityTaskWoken = pdTRUE;    /* 设置手动切换标志 */                  }                  else                  {                      xYieldPending = pdTRUE;                 /* 设置自动切换标志 */                  }              }          }      }      portCLEAR_INTERRUPT_MASK_FROM_ISR( uxSavedInterruptStatus );  }</pre> </div> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>1.3 xTaskGenericNotifyFromISR()</h3> <p>如表1-1所示，带中断保护版本的API函数xTaskNotifyFromISR()和xTaskNotifyAndQueryFromISR()都是宏定义，真正被调用的函数为xTaskGenericNotifyFromISR()。</p> <p>这个函数用于在中断在中发送通知，与不带中断保护的API函数xTaskGenericNotify()非常相似，只是增加了一些中断保护措施，我们直接看源码。通用源码经过整理和注释，以方便理解。</p> <div class="ay1code"> <pre class="brush:cpp;">BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify, uint32_t ulValue, eNotifyAction eAction, uint32_t *pulPreviousNotificationValue, BaseType_t *pxHigherPriorityTaskWoken )  {  TCB_t * pxTCB;  uint8_t ucOriginalNotifyState;  BaseType_t xReturn = pdPASS;  UBaseType_t uxSavedInterruptStatus;      pxTCB = ( TCB_t * ) xTaskToNotify;      uxSavedInterruptStatus = portSET_INTERRUPT_MASK_FROM_ISR();      {          if( pulPreviousNotificationValue != NULL )          {              /* 回传更新前的通知值 */              *pulPreviousNotificationValue = pxTCB-&gt;ulNotifiedValue;          }          ucOriginalNotifyState = pxTCB-&gt;ucNotifyState;          pxTCB-&gt;ucNotifyState = taskNOTIFICATION_RECEIVED;          /* 根据参数设置通知值 */          switch( eAction )          {              case eSetBits   :                  pxTCB-&gt;ulNotifiedValue |= ulValue;                  break;              case eIncrement :                  ( pxTCB-&gt;ulNotifiedValue )++;                  break;              case eSetValueWithOverwrite :                  pxTCB-&gt;ulNotifiedValue = ulValue;                  break;              case eSetValueWithoutOverwrite :                  if( ucOriginalNotifyState != taskNOTIFICATION_RECEIVED )                  {                      pxTCB-&gt;ulNotifiedValue = ulValue;                  }                  else                  {                      /* 上次的通知值还未取走,本次通知值丢弃 */                      xReturn = pdFAIL;                  }                  break;              case eNoAction :                  /* 不需要更新通知值*/                  break;          }          traceTASK_NOTIFY_FROM_ISR();          /* 如果被通知的任务因为等待通知而阻塞,现在将它解除阻塞 */          if( ucOriginalNotifyState == taskWAITING_NOTIFICATION )          {                 /* 如果调度器正常,将任务放入就绪列表,否则放入挂起就绪列表 */              if( uxSchedulerSuspended == ( UBaseType_t ) pdFALSE )              {                  ( void ) uxListRemove( &amp;( pxTCB-&gt;xStateListItem ) );                  prvAddTaskToReadyList( pxTCB );              }              else              {                  vListInsertEnd( &amp;( xPendingReadyList ), &amp;( pxTCB-&gt;xEventListItem ) );              }               if( pxTCB-&gt;uxPriority &gt; pxCurrentTCB-&gt;uxPriority )              {                  /* 如果解除阻塞的任务优先级大于当前任务优先级,则设置上下文切换标识,等退出函数后手动切换上下文,或者在系统节拍中断服务程序中自动切换上下文*/                  if( pxHigherPriorityTaskWoken != NULL )                  {                      *pxHigherPriorityTaskWoken = pdTRUE;    /* 设置手动切换标志 */                  }                  else                  {                      xYieldPending = pdTRUE;                 /* 设置自动切换标志 */                  }              }          }      }      portCLEAR_INTERRUPT_MASK_FROM_ISR( uxSavedInterruptStatus );      return xReturn;  }</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>2.等待通知</h2> <p>等待通知API函数只能用在任务中，没有带中断保护版本，因此只有两个API函数：</p> <blockquote> <p>ulTaskNotifyTake()和xTaskNotifyWait ()</p> </blockquote> <p>前者是为代替二进制信号量和计数信号量而专门设计的，它和发送通知API函数xTaskNotifyGive()、vTaskNotifyGiveFromISR()配合使用；</p> <p>后者是全功能版的等待通知，可以根据不同的参数实现轻量级二进制信号量、计数信号量、事件组和长度为1的队列。</p> <p>等待通知API函数都带有最大阻塞时间参数，当任务因为等待通知而进入阻塞时，用来规定最大阻塞时间。</p> <p class="maodian"><a name="_lab2_2_3" rel="nofollow"></a></p> <h3>2.1 ulTaskNotifyTake()</h3> <p>这个API函数用于实现轻量级的二进制信号量和计数信号量，源码如下所示。它有两个参数，如果第一个参数xClearCountOnExit设置为pdTRUE，则用来实现二进制信号量，函数退出时将通知值清零；如果第一个参数设置为pdFALSE，则用来实现计数信号量，函数退出时，将通知值减一。</p> <div class="ay1code"> <pre class="brush:cpp;">uint32_t ulTaskNotifyTake( BaseType_t xClearCountOnExit, TickType_t xTicksToWait )  {  uint32_t ulReturn;      taskENTER_CRITICAL();      {          /* 仅当通知值为0，才进行阻塞操作*/          if( pxCurrentTCB-&gt;ulNotifiedValue == 0UL )          {              /* 设置标志,表示当前任务等待一个通知*/              pxCurrentTCB-&gt;ucNotifyState = taskWAITING_NOTIFICATION;              if( xTicksToWait &gt; ( TickType_t ) 0 )              {                     /* 将任务加入延时列表 */                  prvAddCurrentTaskToDelayedList( xTicksToWait, pdTRUE );                  traceTASK_NOTIFY_TAKE_BLOCK();                  /* 触发PendSV中断,等到退出临界区时立即执行任务切换 */                  portYIELD_WITHIN_API();              }          }      }      taskEXIT_CRITICAL();      /* 到这里说明其它任务或中断向这个任务发送了通知,或者任务阻塞超时,现在继续处理*/      taskENTER_CRITICAL();      {          traceTASK_NOTIFY_TAKE();          ulReturn = pxCurrentTCB-&gt;ulNotifiedValue;             if( ulReturn != 0UL )          {              if( xClearCountOnExit != pdFALSE )              {                  pxCurrentTCB-&gt;ulNotifiedValue = 0UL;              }              else              {                  pxCurrentTCB-&gt;ulNotifiedValue = ulReturn - 1;              }          }          /* 设置标志,表示不需要等待通知 */          pxCurrentTCB-&gt;ucNotifyState = taskNOT_WAITING_NOTIFICATION;      }      taskEXIT_CRITICAL();      return ulReturn;    /* 如果返回值为0,说明是任务阻塞超时了 */  }</pre> </div> <p>与获取二进制信号量和获取计数信号量函数相比，本函数少了很多调用子函数开销、少了很多判断、少了事件列表处理、少了队列上锁与解锁处理等等，因此本函数相对效率很高。</p> <p class="maodian"><a name="_lab2_2_4" rel="nofollow"></a></p> <h3>2.2 xTaskNotifyWait()</h3> <p>这个函数用于实现全功能版的等待通知，根据参数的不同，可以灵活的用于实现轻量级的队列、二进制信号量、计数信号量和事件组功能，函数原型为：</p> <div class="ay1code"> <pre class="brush:cpp;">BaseType_t xTaskNotifyWait( uint32_tulBitsToClearOnEntry,                       uint32_tulBitsToClearOnExit,                       uint32_t*pulNotificationValue,                       TickType_txTicksToWait );</pre> </div> <p><code>ulBitsToClearOnEntry</code>：在使用通知之前，先将任务的通知值与参数ulBitsToClearOnEntry的按位取反值按位与操作。设置参数ulBitsToClearOnEntry为0xFFFFFFFF(ULONG_MAX)，表示清零任务通知值。</p> <p><code>ulBitsToClearOnExit</code>：在函数xTaskNotifyWait()退出前，将任务的通知值与参数ulBitsToClearOnExit的按位取反值按位与操作。设置参数ulBitsToClearOnExit为0xFFFFFFFF(ULONG_MAX)，表示清零任务通知值。</p> <p><code>pulNotificationValue</code>：用于向外回传任务的通知值。这个通知值在参数ulBitsToClearOnExit起作用前将通知值拷贝到*pulNotificationValue中。如果不需要返回任务的通知值，这里设置成NULL。</p> <p><code>xTicksToWait</code>：因等待通知而进入阻塞状态的最大时间。时间单位为系统节拍周期。宏pdMS_TO_TICKS用于将指定的毫秒时间转化为相应的系统节拍数。</p> <p>这个函数的实现和ulTaskNotifyTake()有很多相通之处，我将整个流程以注释形式置于源码中，源码如下所示：</p> <div class="ay1code"> <pre class="brush:cpp;">BaseType_t xTaskNotifyWait( uint32_t ulBitsToClearOnEntry, uint32_t ulBitsToClearOnExit, uint32_t *pulNotificationValue, TickType_t xTicksToWait )  {  BaseType_t xReturn;      taskENTER_CRITICAL();      {          /* 只有任务没有等待通知，才会将任务阻塞 */          if( pxCurrentTCB-&gt;ucNotifyState != taskNOTIFICATION_RECEIVED )          {              /* 使用任务通知值之前,先将参数ulBitsToClearOnEntryClear取反后与任务通知值位与.可以用这种方法在使用任务通知值之前,将通知值的某些或全部位清零 */              pxCurrentTCB-&gt;ulNotifiedValue &amp;= ~ulBitsToClearOnEntry;              /* 设置任务状态标识:等待通知 */              pxCurrentTCB-&gt;ucNotifyState = taskWAITING_NOTIFICATION;              if( xTicksToWait &gt; ( TickType_t ) 0 )              {                  /* 阻塞当前任务 */                  prvAddCurrentTaskToDelayedList( xTicksToWait, pdTRUE );                  traceTASK_NOTIFY_WAIT_BLOCK();                  /* 触发PendSV中断,等到退出临界区后,执行任务切换 */                  portYIELD_WITHIN_API();              }          }      }      taskEXIT_CRITICAL();      /* 到这里说明其它任务或中断向这个任务发送了通知,或者任务阻塞超时,现在继续处理*/      taskENTER_CRITICAL();      {          traceTASK_NOTIFY_WAIT();          if( pulNotificationValue != NULL )          {              /* 输出当前通知值,通过指针参数传递*/              *pulNotificationValue = pxCurrentTCB-&gt;ulNotifiedValue;          }           /* 判断是否是因为任务阻塞超时 */          if( pxCurrentTCB-&gt;ucNotifyState == taskWAITING_NOTIFICATION )          {              /* 没有收到任务通知,是阻塞超时 */              xReturn = pdFALSE;          }          else          {              /* 收到任务值,先将参数ulBitsToClearOnExit取反后与通知值位与,用于在退出函数前,将通知值的某些或者全部位清零. */              pxCurrentTCB-&gt;ulNotifiedValue &amp;= ~ulBitsToClearOnExit;              xReturn = pdTRUE;          }          /* 更改任务通知状态,解除任务通知等待 */          pxCurrentTCB-&gt;ucNotifyState = taskNOT_WAITING_NOTIFICATION;      }      taskEXIT_CRITICAL();      return xReturn;  }</pre> </div> <p>纵观整个任务通知的实现，可以发现它比队列、信号量相比要简单很多。它可以实现轻量级的队列、二进制信号量、计数信号量和事件组，并且使用更方便、更节省RAM、更高效。FreeRTOS的作者做过测试，在同一平台下，使用使用GCC编译器、-o2优化级别，相比使用信号量解除任务阻塞，使用任务通知可以快45%！这个性能的提升是巨大的。</p> <p>我们分析过信号量的源码，今天又分析了任务通知的源码，这使得我们知道，之所以有这么大的性能提升，一方面缘于任务通知数据结构简单、实现简洁；</p> <p>另一方面也跟FreeRTOS的信号量机制臃肿、效率低下有关。因为信号量的实现全部是使用队列机制，并没有为信号量做专门优化。</p> <p>此外，着重说明一下任务通知并不能完全代替队列、二进制信号量、计数信号量和事件组，任务通知有自己的局限性，我们就以它的局限性来结束本文：</p> <p>只能有一个任务接收通知事件。</p> <p>接收通知的任务可以因为等待通知而进入阻塞状态，但是发送通知的任务即便不能立即完成发送通知，也不能进入阻塞状态。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88444.htm">实现 ResponseBodyAdvice 定制化JSON 返回字段</a></p>
+                                        <p>下一个：<a href="/news/article-89111.htm">动物打防疫针用什么针头（动物打防疫针用什么针头打）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-81289.htm" title="免费领养宠物交易平台有哪些的简单介绍">免费领养宠物交易平台有哪些的简单介绍</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-9-node-share-links.htm" title="3月9日→18.6M/S|2025年最新免费节点Outline Node订阅链接地址">3月9日→18.6M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-73087.htm" title="vue中的共享数据管理vuex">vue中的共享数据管理vuex</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-node-share.htm" title="4月1日→18.1M/S|2025年最新免费节点Outline Node订阅链接地址">4月1日→18.1M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-79892.htm" title="Spring Boot 2.3.x 分层构建 Docker 镜像实战">Spring Boot 2.3.x 分层构建 Docker 镜像实战</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-3-free-high-speed-nodes.htm" title="4月3日→18.7M/S|2025年最新免费节点Outline Node订阅链接地址">4月3日→18.7M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-76471.htm" title="动物医院申请条件是什么呢怎么写申请书（动物医院营业执照申领需要哪些准备材料）">动物医院申请条件是什么呢怎么写申请书（动物医院营业执照申领需要哪些准备材料）</a></li>
+                        <li class="py-2"><a href="/news/article-83385.htm" title="58同城狗狗免费领养成都（58同城宠物领养成都）">58同城狗狗免费领养成都（58同城宠物领养成都）</a></li>
+                        <li class="py-2"><a href="/news/article-68537.htm" title="兽用疫苗回温器使用说明（兽用疫苗回温器使用说明图片）">兽用疫苗回温器使用说明（兽用疫苗回温器使用说明图片）</a></li>
+                        <li class="py-2"><a href="/news/article-68538.htm" title="被猫抓伤的图片痕迹（被猫抓伤的图片是什么样子）">被猫抓伤的图片痕迹（被猫抓伤的图片是什么样子）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

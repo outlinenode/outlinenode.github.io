@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-90606.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>防止重复提交拦截器 spring boot</title>
+        <meta name="description" content="自定义注解防止表单重复提交 import java.lang.annotation.Documented; import java.lang.annotation.ElementType; impor" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-90606.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="防止重复提交拦截器 spring boot" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/2b1eda8dbe4ab47b39b34874e9102795.webp" />
+        <meta property="og:release_date" content="2025-04-07T09:03:04" />
+    <meta property="og:updated_time" content="2025-04-07T09:03:04" />
+        <meta property="og:description" content="自定义注解防止表单重复提交 import java.lang.annotation.Documented; import java.lang.annotation.ElementType; impor" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="防止重复提交拦截器 spring boot">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">防止重复提交拦截器 spring boot</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>自定义注解防止表单重复提交</p> <pre><code>import java.lang.annotation.Documented; import java.lang.annotation.ElementType; import java.lang.annotation.Inherited; import java.lang.annotation.Retention; import java.lang.annotation.RetentionPolicy; import java.lang.annotation.Target;  /**  * 自定义注解防止表单重复提交  *   * @author xxx  *  */ @Inherited @Target(ElementType.METHOD) @Retention(RetentionPolicy.RUNTIME) @Documented public @interface RepeatSubmit {  }</code></pre> <p>&nbsp;防止重复提交拦截器</p> <pre><code>import com.alibaba.fastjson.JSONObject; import com.manage.common.core.web.domain.AjaxResult; import com.manage.common.utils.ServletUtils; import com.manage.framework.interceptor.annotation.RepeatSubmit; import org.springframework.stereotype.Component; import org.springframework.web.method.HandlerMethod; import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;  import javax.servlet.http.HttpServletRequest; import javax.servlet.http.HttpServletResponse; import java.lang.reflect.Method;  /**  * 防止重复提交拦截器  *   * @author xxx  */ @Component public abstract class RepeatSubmitInterceptor extends HandlerInterceptorAdapter {     @Override     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception     {         if (handler instanceof HandlerMethod)         {             HandlerMethod handlerMethod = (HandlerMethod) handler;             Method method = handlerMethod.getMethod();             RepeatSubmit annotation = method.getAnnotation(RepeatSubmit.class);             if (annotation != null)             {                 if (this.isRepeatSubmit(request))                 {                     AjaxResult ajaxResult = AjaxResult.error("不允许重复提交，请稍后再试");                     ServletUtils.renderString(response, JSONObject.toJSONString(ajaxResult));                     return false;                 }             }             return true;         }         else         {             return super.preHandle(request, response, handler);         }     }      /**      * 验证是否重复提交由子类实现具体的防重复提交的规则      *       * @param request      * @return      * @throws Exception      */     public abstract boolean isRepeatSubmit(HttpServletRequest request); }</code></pre> <p>判断请求url和数据是否和上一次相同，如果和上次相同，则是重复提交表单。 有效时间为10秒内。</p> <pre><code>import java.util.HashMap; import java.util.Map; import java.util.concurrent.TimeUnit; import javax.servlet.http.HttpServletRequest; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.stereotype.Component; import com.alibaba.fastjson.JSONObject; import com.manage.common.filter.RepeatedlyRequestWrapper; import com.manage.common.utils.StringUtils; import com.manage.common.utils.http.HttpHelper; import com.manage.framework.interceptor.RepeatSubmitInterceptor; import com.manage.framework.redis.RedisCache;  /**  * 判断请求url和数据是否和上一次相同，  * 如果和上次相同，则是重复提交表单。 有效时间为10秒内。  *   * @author xxx  */ @Component public class SameUrlDataInterceptor extends RepeatSubmitInterceptor {     public final String REPEAT_PARAMS = "repeatParams";      public final String REPEAT_TIME = "repeatTime";      public final String CACHE_REPEAT_KEY = "repeatData";      @Autowired     private RedisCache redisCache;      /**      * 间隔时间，单位:秒 默认10秒      *       * 两次相同参数的请求，如果间隔时间大于该参数，系统不会认定为重复提交的数据      */     private int intervalTime = 10;      public void setIntervalTime(int intervalTime)     {         this.intervalTime = intervalTime;     }      @SuppressWarnings("unchecked")     @Override     public boolean isRepeatSubmit(HttpServletRequest request)     {         RepeatedlyRequestWrapper repeatedlyRequest = (RepeatedlyRequestWrapper) request;         String nowParams = HttpHelper.getBodyString(repeatedlyRequest);          // body参数为空，获取Parameter的数据         if (StringUtils.isEmpty(nowParams))         {             nowParams = JSONObject.toJSONString(request.getParameterMap());         }         Map&lt;String, Object&gt; nowDataMap = new HashMap&lt;String, Object&gt;();         nowDataMap.put(REPEAT_PARAMS, nowParams);         nowDataMap.put(REPEAT_TIME, System.currentTimeMillis());          // 请求地址（作为存放session的key值）         String url = request.getRequestURI();          Object sessionObj = redisCache.getCacheObject(CACHE_REPEAT_KEY);         if (sessionObj != null)         {             Map&lt;String, Object&gt; sessionMap = (Map&lt;String, Object&gt;) sessionObj;             if (sessionMap.containsKey(url))             {                 Map&lt;String, Object&gt; preDataMap = (Map&lt;String, Object&gt;) sessionMap.get(url);                 if (compareParams(nowDataMap, preDataMap) &amp;&amp; compareTime(nowDataMap, preDataMap))                 {                     return true;                 }             }         }         Map&lt;String, Object&gt; cacheMap = new HashMap&lt;String, Object&gt;();         cacheMap.put(url, nowDataMap);         redisCache.setCacheObject(CACHE_REPEAT_KEY, cacheMap, intervalTime, TimeUnit.SECONDS);         return false;     }      /**      * 判断参数是否相同      */     private boolean compareParams(Map&lt;String, Object&gt; nowMap, Map&lt;String, Object&gt; preMap)     {         String nowParams = (String) nowMap.get(REPEAT_PARAMS);         String preParams = (String) preMap.get(REPEAT_PARAMS);         return nowParams.equals(preParams);     }      /**      * 判断两次间隔时间      */     private boolean compareTime(Map&lt;String, Object&gt; nowMap, Map&lt;String, Object&gt; preMap)     {         long time1 = (Long) nowMap.get(REPEAT_TIME);         long time2 = (Long) preMap.get(REPEAT_TIME);         if ((time1 - time2) &lt; (this.intervalTime * 1000))         {             return true;         }         return false;     } }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90603.htm">Eureka包含两个组件：Eureka Server 和 Eureka Client</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-node-subscribe-links.htm" title="3月11日→20.8M/S|2025年最新免费节点Outline Node订阅链接地址">3月11日→20.8M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-node-share.htm" title="3月10日→20.7M/S|2025年最新免费节点Outline Node订阅链接地址">3月10日→20.7M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-free-subscribe-node.htm" title="3月16日→19.3M/S|2025年最新免费节点Outline Node订阅链接地址">3月16日→19.3M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-free-node-subscribe-links.htm" title="4月2日→18.1M/S|2025年最新免费节点Outline Node订阅链接地址">4月2日→18.1M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-node-subscribe.htm" title="3月12日→22M/S|2025年最新免费节点Outline Node订阅链接地址">3月12日→22M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-77837.htm" title="宠物猫打疫苗一共多少钱一只（宠物猫咪打疫苗多少钱一针）">宠物猫打疫苗一共多少钱一只（宠物猫咪打疫苗多少钱一针）</a></li>
+                        <li class="py-2"><a href="/news/article-89868.htm" title="动物疫苗业务员能挣多少（动物疫苗经营）">动物疫苗业务员能挣多少（动物疫苗经营）</a></li>
+                        <li class="py-2"><a href="/news/article-71108.htm" title="java Socket 一行一行地读和一行一行的写">java Socket 一行一行地读和一行一行的写</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-node-subscribe-links.htm" title="3月30日→21.9M/S|2025年最新免费节点Outline Node订阅链接地址">3月30日→21.9M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-node-share.htm" title="4月7日→20.8M/S|2025年最新免费节点Outline Node订阅链接地址">4月7日→20.8M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
