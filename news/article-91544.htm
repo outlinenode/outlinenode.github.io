@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-91544.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C++基础之C++中的输入输出</title>
+        <meta name="description" content="文章目录 文章目录 前言 一、输入输出流 二、c++中输入输出语句 1.标准输入设备 2.标准输出设备 3.原理 三、iostream类库   c++是一个重要的面向对象语言，本文梳理了c++中输入输" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-91544.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="C++基础之C++中的输入输出" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/5fc1971c448020954f97b30ff11998c1.webp" />
+        <meta property="og:release_date" content="2025-04-08T09:56:59" />
+    <meta property="og:updated_time" content="2025-04-08T09:56:59" />
+        <meta property="og:description" content="文章目录 文章目录 前言 一、输入输出流 二、c++中输入输出语句 1.标准输入设备 2.标准输出设备 3.原理 三、iostream类库   c++是一个重要的面向对象语言，本文梳理了c++中输入输" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++基础之C++中的输入输出">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">C++基础之C++中的输入输出</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2 id="main-toc"><strong>文章目录</strong></h2> <p id="%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95-toc" style="margin-left:80px;"><a href="#%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95" rel="nofollow">文章目录</a></p> <p id="%E5%89%8D%E8%A8%80-toc" style="margin-left:0px;"><a href="#%E5%89%8D%E8%A8%80" rel="nofollow">前言</a></p> <p id="%E4%B8%80%E3%80%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81-toc" style="margin-left:0px;"><a href="#%E4%B8%80%E3%80%81%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81" rel="nofollow">一、输入输出流</a></p> <p id="%E4%BA%8C%E3%80%81c%2B%2B%E4%B8%AD%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5-toc" style="margin-left:0px;"><a href="#%E4%BA%8C%E3%80%81c%2B%2B%E4%B8%AD%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5" rel="nofollow">二、c++中输入输出语句</a></p> <p id="1.%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87-toc" style="margin-left:80px;"><a href="#1.%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87" rel="nofollow">1.标准输入设备</a></p> <p id="2.%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87-toc" style="margin-left:80px;"><a href="#2.%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87" rel="nofollow">2.标准输出设备</a></p> <p id="3.%E5%8E%9F%E7%90%86-toc" style="margin-left:80px;"><a href="#3.%E5%8E%9F%E7%90%86" rel="nofollow">3.原理</a></p> <p id="%E4%B8%89%E3%80%81iostream%E7%B1%BB%E5%BA%93-toc" style="margin-left:0px;"><a href="#%E4%B8%89%E3%80%81iostream%E7%B1%BB%E5%BA%93" rel="nofollow">三、iostream类库</a></p> <hr id="hr-toc"/> </h1> <p>c++是一个重要的面向对象语言，本文梳理了c++中输入输出基本语法以及关于输入出相关知识的总结</p> <hr/> </h1> <p>输入输出是数据传送的过程，c++中将此过程形象的称为流，c++中输入输出流输入输出流是指由若干字节组成的序列，这些字节序列中的数据按顺序从一个对象传送到另一个对象。在输入操作时，字节流从输入设备流向内存；在输出操作时，字节流从内存流向输出设备。流中的内容可以是ASCII码值、二进制形式数据、数字音频视频、图形图像或者其他形式的信息。</p> <p>（输入设备：如键盘、磁盘&nbsp;&nbsp; 输出设备：如屏幕、打印机等）</p> <p>在c++中，输入输出流被定义为类，c++的I/O库中的类为流类，用流类定义的对象称为流对象。</p> </h1> <h3 id="1.%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%AE%BE%E5%A4%87">1.标准输入设备</h3> <p>cin 是标准输入设备（相当于键盘），连续从键盘读取数据，"&gt;&gt;"为提取运算符。</p> <p>输入的使用：cin &gt;&gt; 变量&nbsp; （cin在输入字符串时，空格作为结束符）</p> <h3 id="2.%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87">2.标准输出设备</h3> <p>cout 是标准输出设备（相当于屏幕）,"&lt;&lt;"为插入运算符。</p> <p>输出的使用：cout &lt;&lt; 输出项 &lt;&lt; endl&nbsp; (endl 相当于换行符"\n")</p> <p>代码示例如下：</p> <pre><code class="language-cpp">#include &lt;iostream&gt;  using namespace std;  int main() {     int a;     char ch;     cout &lt;&lt; "请输入一个常数" &lt;&lt; endl;     cin &gt;&gt; a;      cout &lt;&lt; "请输入一个字母" &lt;&lt; endl;     cin &gt;&gt; ch;      cout &lt;&lt; "常数为" &lt;&lt; a &lt;&lt; endl;     cout &lt;&lt; "字母为" &lt;&lt; ch &lt;&lt; endl;     return 0; } </code></pre> <p>运行结果：</p> <p><img fetchpriority="high" decoding="async" alt="" height="178" src="http://img.555519.xyz/uploads/20230108/77e997baa8a507495b9110f8288add6c.jpg"></p> <h3 id="3.%E5%8E%9F%E7%90%86">3.原理</h3> <p>在内存中为每个数据流开辟一个内存缓冲区，用来存放流中的数据。</p> <p>当用cin和&gt;&gt;输入数据时，从键盘获取的数据先放入键盘的缓冲区中，按回车键，键盘缓冲区数据输入到程序中输入缓冲区，形成cin流，然后用提取符"&gt;&gt;"从输入缓冲区中提取数据给程序中相关变量。</p> <p>在输出时，先将数据放入程序中的输出缓冲区保存，缓冲区满了或遇到endl时，将缓冲区中的数据传到显示器显示出来。</p> </h1> <p>ios是抽象基类，派生出istream类和ostream类，"i"和"o"分别代表输入和输出，由istream类和ostream类经过多重继承派生出的类为iostream类，支持输入输出操作，iostream类库中包含许多用于输入输出的类。</p> <p>与iostream类库有关的头文件：</p> <p>iostream 包含对输入输出流进行操作所需的基本信息</p> <p>fstream 用于用户管理的文件的I/O操作</p> <p>strstream 用于字符串流I/O操作</p> <p>stdiostream 用于混合使用C和C++的I/O机制时，例如将C程序转变为C++</p> <p>iomanip 使用格式化I/O时包含此头文件</p> <hr/> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-91543.htm">python-模块（random模块、time模块）</a></p>
+                                        <p>下一个：<a href="/news/article-92137.htm">宠物粮食品牌起名大全及寓意图 宠物粮食品牌起名大全及寓意图片</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-free-high-speed-nodes.htm" title="4月5日→19.4M/S|2025年最新免费节点Outline Node订阅链接地址">4月5日→19.4M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-77147.htm" title="动物疫苗在哪里买便宜 动物疫苗在哪里买便宜点">动物疫苗在哪里买便宜 动物疫苗在哪里买便宜点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-node-share.htm" title="3月22日→18M/S|2025年最新免费节点Outline Node订阅链接地址">3月22日→18M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-high-speed-nodes.htm" title="3月17日→20.6M/S|2025年最新免费节点Outline Node订阅链接地址">3月17日→20.6M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-87692.htm" title="妙三多和猫三联打哪个好（妙三多和猫三联哪个贵）">妙三多和猫三联打哪个好（妙三多和猫三联哪个贵）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-free-subscribe-node.htm" title="3月21日→18.5M/S|2025年最新免费节点Outline Node订阅链接地址">3月21日→18.5M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-66599.htm" title="狗狗的领养协议（狗狗领养协议书范本）">狗狗的领养协议（狗狗领养协议书范本）</a></li>
+                        <li class="py-2"><a href="/news/article-69802.htm" title="蚁群算法（Ant System）（AS）">蚁群算法（Ant System）（AS）</a></li>
+                        <li class="py-2"><a href="/news/article-67235.htm" title="动物疫苗龙头企业名单最新 动物疫苗龙头企业名单最新消息">动物疫苗龙头企业名单最新 动物疫苗龙头企业名单最新消息</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-node-share.htm" title="4月7日→20.8M/S|2025年最新免费节点Outline Node订阅链接地址">4月7日→20.8M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
