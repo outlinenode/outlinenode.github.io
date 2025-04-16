@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://outlinenode.github.io/news/article-96628.htm" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySQL数据库中的Date,DateTime,TimeStamp和Time类型</title>
+        <meta name="description" content="DATETIME类型用在你需要同时包含日期和时间信息的值时。MySQL检索并且以'YYYY-MM-DD HH:MM:SS'格式显示DATETIME值，支持的范围是'1000-01-01 00:00:0" />
+        <link rel="icon" href="/assets/website/img/outlinenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Outline Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://outlinenode.github.io/news/article-96628.htm" />
+    <meta property="og:site_name" content="Outline Node免费机场订阅节点官网" />
+    <meta property="og:title" content="MySQL数据库中的Date,DateTime,TimeStamp和Time类型" />
+    <meta property="og:image" content="https://outlinenode.github.io/uploads/20241101/2bd75a8418ee2d218b81688a21b58a21.webp" />
+        <meta property="og:release_date" content="2025-04-15T06:01:53" />
+    <meta property="og:updated_time" content="2025-04-15T06:01:53" />
+        <meta property="og:description" content="DATETIME类型用在你需要同时包含日期和时间信息的值时。MySQL检索并且以'YYYY-MM-DD HH:MM:SS'格式显示DATETIME值，支持的范围是'1000-01-01 00:00:0" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL数据库中的Date,DateTime,TimeStamp和Time类型">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- Favicon -->
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/vendor/icofont.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/animate.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/aos.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/plugins/selectric.css" />
+    <link rel="stylesheet" href="/assets/website/css/outlinenode/style.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2WVKF223J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-S2WVKF223J');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header class="header">
+        <div id="active-sticky" class="header-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <a href="/" class="brand-logo">
+                                                        <span>Outline Node</span>
+                                                    </a>
+                    </div>
+                    <div class="col-auto"><a class="btn btn-warning btn-hover-warning d-none d-sm-inline-block d-lg-none" href="#">Analyze Your Site <i class="icofont-arrow-right"></i></a>
+                        <button type="button" class="btn btn-warning offcanvas-toggler" data-bs-toggle="modal" data-bs-target="#offcanvas-modal"><span class="line"></span><span class="line"></span><span class="line"></span></button>
+                        <nav class="d-none d-lg-block">
+                            <ul class="main-menu text-end">
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/">首页</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/free-nodes/">免费节点</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/client.htm">客户端</a></li>
+                                                                <li class="main-menu-item"><a class="main-menu-link" href="/news/">新闻资讯</a></li>
+                                                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- bread crumb section start -->
+    <section class="bread-crumb-section"><img class="shape shape1" src="/assets/website/img/outlinenode/bread/1.png" alt="images_not_found"><img class="shape shape2" src="/assets/website/img/outlinenode/bread/2.png" alt="images_not_found">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="title text-center">MySQL数据库中的Date,DateTime,TimeStamp和Time类型</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="/">首页</a></li>
+                            <li class="breadcrumb-item"><a href="/news/">新闻资讯</a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><span>正文</span></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- bread crumb section end -->
+    <!-- faq section start -->
+    <section class="faq-section my-7"> <img src="/assets/website/img/outlinenode/faq/bg.png" alt="images-not_found" class="faq-bg" />
+        <div class="container mb-7">
+            <div class="row mb-n7">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size:14px"><span style="color:#ff0000"><strong>DATETIME</strong></span>类型用在你需要同时包含日期和时间信息的值时。MySQL检索并且以'YYYY-MM-DD HH:MM:SS'格式显示DATETIME值，支持的范围是'1000-01-01 00:00:00'到'9999-12-31 23:59:59'。（“支持”意味着尽管更早的值可能工作，但不能保证他们可以。）</span></p> <p><span style="font-size:14px"></span></p> <p><span style="font-size:14px"><span style="color:#ff0000"><strong>DATE</strong></span>类型用在你仅需要日期值时，没有时间部分。MySQL检索并且以'YYYY-MM-DD'格式显示DATE值，支持的范围是'1000-01-01'到'9999-12-31'。</span></p> <p><span style="font-size:14px"></span></p> <p><span style="font-size:14px"><span style="color:#ff0000"><strong>TIMESTAMP</strong></span>列类型提供一种类型，你可以使用它自动地用当前的日期和时间标记INSERT或UPDATE的操作。</span></p> <p><span style="font-size:14px"></span></p> <p><span style="font-size:14px"><span style="color:#ff0000"><strong>TIME</strong></span>数据类型表示一天中的时间。MySQL检索并且以"HH:MM:SS"格式显示TIME值。支持的范围是'00:00:00'到'23:59:59'。</span></p> <p><span style="font-size:14px">创建表SQL</span></p> <div class="dp-highlighter bg_sql"> <ol class="dp-sql"> <li class="alt"><span class="keyword"><strong><span style="color:#006699">CREATE</span></strong></span><span class="keyword"><strong><span style="color:#006699">TABLE</span></strong></span>&nbsp;`tb_test`&nbsp;(</li> <li>&nbsp;&nbsp;`id`<span class="keyword"><strong><span style="color:#006699">int</span></strong></span>(11)<span class="op"><span style="color:#808080">NOT</span></span><span class="op"><span style="color:#808080">NULL</span></span>&nbsp;AUTO_INCREMENT,</li> <li class="alt">&nbsp;&nbsp;`date1`<span class="keyword"><strong><span style="color:#006699">timestamp</span></strong></span><span class="op"><span style="color:#808080">NOT</span></span><span class="op"><span style="color:#808080">NULL</span></span><span class="keyword"><strong><span style="color:#006699">DEFAULT</span></strong></span><span class="string"><span style="color:#0000ff">'0000-00-00&nbsp;00:00:00'</span></span><span class="keyword"><strong><span style="color:#006699">ON</span></strong></span><span class="keyword"><strong><span style="color:#006699">UPDATE</span></strong></span>&nbsp;CURRENT_TIM</li> <li>ESTAMP,</li> <li class="alt">&nbsp;&nbsp;`date2`<span class="keyword"><strong><span style="color:#006699">date</span></strong></span><span class="keyword"><strong><span style="color:#006699">DEFAULT</span></strong></span><span class="op"><span style="color:#808080">NULL</span></span>,</li> <li>&nbsp;&nbsp;`date3`&nbsp;datetime<span class="keyword"><strong><span style="color:#006699">DEFAULT</span></strong></span><span class="op"><span style="color:#808080">NULL</span></span>,</li> <li class="alt">&nbsp;&nbsp;`<span class="keyword"><strong><span style="color:#006699">time</span></strong></span>`<span class="keyword"><strong><span style="color:#006699">time</span></strong></span><span class="keyword"><strong><span style="color:#006699">DEFAULT</span></strong></span><span class="op"><span style="color:#808080">NULL</span></span>,</li> <li><span class="keyword"><strong><span style="color:#006699">PRIMARY</span></strong></span><span class="keyword"><strong><span style="color:#006699">KEY</span></strong></span>&nbsp;(`id`)</li> <li class="alt">);</li> </ol> </div> <p><span style="font-size:14px">运行效果截图：</span></p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220603/628489041d4df0d1b2126dab06ff31c9.jpg"></p> <p></p> <p><span style="font-size:14px">日期类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 存储空间&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 日期格式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 日期范围</p> <p> datetime&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 bytes&nbsp;&nbsp; YYYY-MM-DD HH:MM:SS&nbsp;&nbsp; 1000-01-01 00:00:00 ~ 9999-12-31 23:59:59<br /> timestamp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 bytes&nbsp;&nbsp; YYYY-MM-DD HH:MM:SS&nbsp;&nbsp; 1970-01-01 00:00:01 ~ 2037-12-31 23:59:59<br /> date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; 3 bytes&nbsp;&nbsp; YYYY-MM-DD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 1000-01-01 ~ 9999-12-31<br /></span></p> <p><span style="font-size:14px">datetime和timestamp的区别：<br /> 1.datetime 的日期范围比较大；如果有1970年以前的数据还是要用datetime.但是timestamp 所占存储空间比较小。<br /> 2.timestamp 类型的列还有个特性：默认情况下，在 insert, update 数据时，timestamp 列会自动以当前时间（CURRENT_TIMESTAMP）填充/更新。</span></p> <p><span style="font-size:14px">3.timestamp比较受时区timezone的影响以及MYSQL版本和服务器的<a target="_blank" rel="nofollow"><u><strong>SQL</strong></u></a> MODE的影响.</p> <p> 使用一个常用的格式集的任何一个，你可以指定DATETIME、DATE和TIMESTAMP值：<br /> 'YYYY-MM-DD HH:MM:SS'或'YY-MM-DD HH:MM:SS'格式的一个字符串,允许一种"宽松"的语法:任何标点可用作在日期部分和时间部分之间的分隔符。例如，'98-12-31 11:30:45'、'98.12.31 11+30+45'、'98/12/31 11*30*45'和'98@12@31 11^30^45'是等价的。</span></p> <p></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-96627.htm">vue【退出登录功能】</a></p>
+                                        <p>下一个：<a href="/news/article-97294.htm">被猫抓了一下一点点血（被猫抓了一下一点点血没事吧?）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-68537.htm" title="兽用疫苗回温器使用说明（兽用疫苗回温器使用说明图片）">兽用疫苗回温器使用说明（兽用疫苗回温器使用说明图片）</a></li>
+                        <li class="py-2"><a href="/news/article-93609.htm" title="宠物食品加工厂的前景 宠物食品加工厂的前景如何">宠物食品加工厂的前景 宠物食品加工厂的前景如何</a></li>
+                        <li class="py-2"><a href="/news/article-94436.htm" title="动物医院好评模板范文怎么写的图片（动物医院好评模板范文怎么写的图片大全）">动物医院好评模板范文怎么写的图片（动物医院好评模板范文怎么写的图片大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-high-speed-nodes.htm" title="3月17日→20.6M/S|2025年最新免费节点Outline Node订阅链接地址">3月17日→20.6M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70450.htm" title="宠物医院看仓鼠贵吗（普通宠物医院看仓鼠吗）">宠物医院看仓鼠贵吗（普通宠物医院看仓鼠吗）</a></li>
+                        <li class="py-2"><a href="/news/article-75117.htm" title="vue跳转方式及传参 (包括打开新窗口)">vue跳转方式及传参 (包括打开新窗口)</a></li>
+                        <li class="py-2"><a href="/news/article-81288.htm" title="中国十大宠物食品公司全名叫什么（国内宠物食品行业公司）">中国十大宠物食品公司全名叫什么（国内宠物食品行业公司）</a></li>
+                        <li class="py-2"><a href="/news/article-78516.htm" title="宠物粮食生产配方大全 宠物粮食生产配方大全图片">宠物粮食生产配方大全 宠物粮食生产配方大全图片</a></li>
+                        <li class="py-2"><a href="/news/article-95900.htm" title="中国宠物用品生产基地在哪里有（宠物用品厂家哪个城市最多）">中国宠物用品生产基地在哪里有（宠物用品厂家哪个城市最多）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-node-share-links.htm" title="4月11日→19.7M/S|2025年最新免费节点Outline Node订阅链接地址">4月11日→19.7M/S|2025年最新免费节点Outline Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq team section end -->
+    <!-- blog section end -->
+        <footer class="footer-section position-relative">
+        <!-- coppy right satrt -->
+        <div class="copy-right-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>
+                            <a href="/">Outline Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coppy right end -->
+    </footer>
+    <!-- Scripts -->
+    <script src="/assets/website/js/frontend/outlinenode/vendor/vendor.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/plugins.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/ajax-contact.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/aos.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/plugins/jquery.selectric.min.js"></script>
+    <script src="/assets/website/js/frontend/outlinenode/main.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
